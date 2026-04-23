@@ -1,6 +1,8 @@
 // @ts-check
 import { defineConfig, fontProviders } from 'astro/config';
 
+import sitemap from '@astrojs/sitemap';
+
 // https://astro.build/config
 export default defineConfig({
     fonts: [
@@ -15,4 +17,6 @@ export default defineConfig({
             cssVariable: '--font-ubuntu',
         },
     ],
+    integrations: [sitemap()],
+    site: 'https://metacyclopedia.github.io',
 });
