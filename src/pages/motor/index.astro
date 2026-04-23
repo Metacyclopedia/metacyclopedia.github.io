@@ -1,0 +1,46 @@
+---
+import DefaultLayout from '@/layouts/DefaultLayout.astro';
+import CardImage from '@/components/CardImage.astro';
+import CardWrapper from '@/components/CardWrapper.astro';
+import Link from '@/components/Link.astro';
+
+const description =
+    'Detailed information regarding the motor used in the Sondors Metacycle.';
+---
+
+<DefaultLayout
+    title="Motor"
+    description={description}
+    urlFragment="motor/"
+    color="white"
+    backgroundImage="/Heading Backgrounds/metacycle-rear-wheel.webp"
+>
+    <p>
+        This is a "QS273 8000W 3T" model; there are several QS273 models made by
+        QS MOTOR, and several revisions of the 8000 W one that the Metacycle
+        uses.
+    </p>
+    <p>
+        11 HP (8 kW) nominal, 20 HP (14.5 kW) peak, 108 Nm (80 foot pounds)
+        torque nominal, 176 Nm (130 foot pounds) torque peak.
+    </p>
+    <p>
+        <Link
+            href="https://www.facebook.com/groups/905762400660923/posts/1314449579792201/"
+            >Dyno data post</Link
+        > with some observations about performance.
+    </p>
+
+    <CardWrapper>
+        <CardImage src="/Images/motor-stats.webp" alt="Motor stats" />
+        <CardImage
+            src="/Images/motor-technical-drawing.webp"
+            alt="Motor technical drawing"
+        />
+        <CardImage
+            src="/Images/motor-torque-graph.webp"
+            alt="Motor torque graph"
+        />
+        <CardImage src="/Images/motor-dyno-data.webp" alt="Motor dyno data" />
+    </CardWrapper>
+</DefaultLayout>

@@ -1,0 +1,77 @@
+---
+import DefaultLayout from '@/layouts/DefaultLayout.astro';
+import Link from '@/components/Link.astro';
+
+const description =
+    'Find and converse with other members of the Metacycle community.';
+---
+
+<DefaultLayout
+    title="Community"
+    description={description}
+    backgroundImage="/Heading Backgrounds/three-metacycles.jpg"
+    color="white"
+    urlFragment="community/"
+>
+    <h2>Let's Stay in Touch!</h2>
+
+    <p>
+        This site wouldn't exist without the fantastic Metacycle community. A
+        heartfelt "Thank you!" goes out to everyone who freely shared
+        information to better everyone's lives.
+    </p>
+
+    <p>
+        If you have a way to improve this site, please send in feedback! The
+        form is anonymous and I would sincerely appreciate any help you can
+        provide. Report additional files or schematics, gory technical details,
+        links to parts, and topics that were overlooked. Even pointing out a
+        typo helps make this site better.
+    </p>
+
+    <h4>Discord</h4>
+
+    <ul>
+        <li><Link href="https://discord.gg/QmVYG2QsZB">MetaHack</Link></li>
+        <li>
+            <Link href="https://discord.gg/96UpcjeBWf"
+                >Verified Metacycle Owners</Link>
+        </li>
+    </ul>
+
+    <h4>Facebook</h4>
+
+    <ul>
+        <li>
+            <Link href="https://www.facebook.com/groups/905762400660923"
+                >Sondors Metacycle Mods Club</Link>
+        </li>
+        <li>
+            <Link href="https://www.facebook.com/groups/770913380195452/"
+                >Sondors Metacycle fan club of America</Link>
+        </li>
+        <li>
+            <Link href="https://www.facebook.com/groups/sondorsmetacycle/"
+                >Sondors Metacycle Owners Group</Link
+            > (private)
+        </li>
+        <li>
+            <Link href="https://www.facebook.com/groups/4050911351682882/"
+                >Sondors MetaCycle Owners Group</Link
+            > (private)
+        </li>
+    </ul>
+
+    <h4>Forums</h4>
+
+    <ul>
+        <li>
+            <Link href="https://endless-sphere.com/sphere/">Endless Sphere</Link
+            > - All about electric vehicles
+        </li>
+        <li>
+            <Link href="https://www.reddit.com/r/metacycle/">r/metacycle</Link> -
+            Reddit
+        </li>
+    </ul>
+</DefaultLayout>

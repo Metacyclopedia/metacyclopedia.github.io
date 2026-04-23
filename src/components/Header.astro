@@ -1,0 +1,38 @@
+---
+interface Props {
+    backgroundImage: string;
+    title: string;
+}
+
+const { backgroundImage, color, title } = Astro.props;
+---
+
+<style>
+    header {
+        font-size: 4rem;
+        font-weight: bold;
+        background-size: cover;
+        background-position: center;
+    }
+
+    div {
+        padding: 2em 1em;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    div.white {
+        color: white;
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    div.black {
+        background-color: rgba(255, 255, 255, 0.5);
+        color: black;
+    }
+</style>
+
+<header style={`background-image: url("${backgroundImage}")`}>
+    <div class={color}>{title}</div>
+</header>

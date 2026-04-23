@@ -1,0 +1,153 @@
+---
+import DefaultLayout from '@/layouts/DefaultLayout.astro';
+import ImageText from '@/components/ImageText.astro';
+import Card from '@/components/Card.astro';
+import CardWrapper from '@/components/CardWrapper.astro';
+import YouTubeText from '@/components/YouTubeText.astro';
+import Link from '@/components/Link.astro';
+
+const description =
+    'How to configure or replace the display unit of the Sondors Metacycle.';
+---
+
+<DefaultLayout
+    title="Display Unit"
+    description={description}
+    urlFragment="display-unit/"
+    color="white"
+    backgroundImage="/Heading Backgrounds/display.png"
+>
+    <h2>SiAECOSYS 061 DKD Speedometer</h2>
+
+    <p>
+        The Metacycle uses a SiAECOSYS 061 DKD speedometer as its display unit.
+        This is a common display used in electric bikes and scooters. It has a
+        20-pin connector that interfaces with the controller and other
+        components of the bike.
+    </p>
+    <p>
+        From the factory, this display is configured with an incorrect wheel
+        size, which causes the speedometer to display inaccurate speeds (80 mph
+        instead of the actual 70 mph). Fixing this is easy; see "Configuring"
+        below.
+    </p>
+
+    <p>
+        The display uses <Link
+            href="https://endless-sphere.com/sphere/threads/using-fardrivers-lin-protocol.120345/"
+            >one-LIN</Link
+        > or <Link href="/can-bus/">CAN bus</Link> to communicate to the controller
+        and is powered by 72v.
+    </p>
+
+    <p>
+        There is a bar that goes up the left side and across the top of the
+        unit. This is used to show how much energy is being sent to the motor.
+        It is not measuring RPM. In drive it goes up to about 7, and in sport it
+        goes to 11, but there's no indication of units or what each bar means.
+    </p>
+    <p>
+        There's also a series of red LEDs that light up while riding. There's no
+        information on what those lights represent.
+    </p>
+    <ul>
+        <li>
+            <Link href="/Downloads/SiAECOSYS DKD Display User Manual.pdf"
+                >SiAECOSYS DKD Display User Manual</Link
+            >
+        </li>
+        <li>
+            <Link
+                href="/Downloads/061 DKD adjustable speedometer user manual 20210429.pdf"
+                >DKD Adjustable Speedometer User Manual</Link
+            >
+        </li>
+    </ul>
+
+    <h2>Alternate Displays</h2>
+
+    <p>
+        There's a "New 061 TFT DKD" speedometer, as seen on <Link
+            href="https://www.reddit.com/r/metacycle/comments/10878ol/possible_metacycle_display_upgrade_option/"
+            >Reddit</Link
+        >. It is not a plug-and-play swap, but it <Link
+            href="https://www.facebook.com/groups/905762400660923/posts/990176548886174/"
+            >could be usable</Link
+        >. Pins will have to be remapped and the 72 V input would need to be
+        swapped with 12 V instead. Also, the unit will show gear 4 or 3 instead
+        of D or S.
+    </p>
+
+    <p>
+        <Link
+            href="https://www.facebook.com/groups/905762400660923/posts/1346526329917859?comment_id=1346532259917266"
+            >Another user</Link
+        > is getting the CJ-V5-03 unit working.
+    </p>
+
+    <p>
+        <Link href="https://www.youtube.com/watch?v=DRkYaPeZ6lg"
+            >This video</Link
+        > shows shows the N1S working with EM100, which is also using one-LIN output.
+        It's not allowed to be embedded on this page for easy viewing.
+    </p>
+
+    <h2>Configuring</h2>
+
+    <YouTubeText
+        code="vdKBwa3N2Kw"
+        title="Metacycle Wheel Circumference Adjustment"
+    >
+        <p>
+            On the back side of the unit are two buttons, one on the left and
+            one on the right. You can use them to enter programming codes and
+            configure the wheel circumference to make the speedometer more
+            accurate.
+        </p>
+    </YouTubeText>
+
+    <YouTubeText code="B10-ygwsQAc" title="DKD Programmable Speedometer Demo">
+        <p>Demonstration of how to program the speedometer.</p>
+        <p>
+            This method is very convenient because it requires no extra tools or
+            equipment.
+        </p>
+    </YouTubeText>
+
+    <p>
+        Enter programming mode by holding the left button. Enter the code by
+        tapping the left button to increment the blinking number and the right
+        button to move one digit right. Long press the right button to exit.
+        When you enter programming mode, the screen shows "CC". At this point,
+        enter one of these codes to configure the associated setting.
+    </p>
+
+    <ul>
+        <li>153: Set circumference (mm), pole pairs, offset.</li>
+        <li>256: Select 2 speed gear (-2) or normal 3 speed gear (-0).</li>
+        <li>372: Reset odometer. This is limited to three times.</li>
+        <li>
+            856: Select 60v/72v/96v/48v to automatically configure the battery
+            bar on the display.
+        </li>
+        <li>879: Set the fixed voltage calibration to 60v/72v/96v/48v.</li>
+        <li>
+            824: "Self input voltage calibration" (perhaps it enables the
+            auto-detection of the voltage range for the battery bar).
+        </li>
+        <li>974: Switch between KPH and MPH on display.</li>
+        <li>928: Turn on/off the D/N/R indicator light.</li>
+    </ul>
+
+    <p>
+        If you want your Metacycle to still operate, only change the
+        circumference to 1675 and leave the pole pairs and offset alone.
+    </p>
+
+    <p>
+        The above codes were found this <Link
+            href="/Downloads/DKD Programming Codes.pdf"
+            >DKD Programming Codes</Link
+        > document.
+    </p>
+</DefaultLayout>

@@ -1,0 +1,150 @@
+---
+import DefaultLayout from '@/layouts/DefaultLayout.astro';
+import Link from '@/components/Link.astro';
+import ImageText from '@/components/ImageText.astro';
+import YouTubeText from '@/components/YouTubeText.astro';
+
+const description =
+    'How to replace, bypass, and work around the awful alarm system.';
+---
+
+<DefaultLayout
+    title="Removing the Alarm System"
+    description={description}
+    urlFragment="removing-alarm-system/"
+    color="white"
+    backgroundImage="/Heading Backgrounds/bypass-alarm.png"
+>
+    <p>
+        The alarm system on the bike is one of the <Link
+            href="https://electrek.co/2024/05/12/failed-sondors-metacycle-motorcycle-was-never-street-legal-reveals-employee/"
+            >worst features</Link
+        > according to one engineer on the project. The unit can mysteriously fail
+        and the batteries on the key fobs can die. This system can be removed or simply
+        bypassed by installing a <Link
+            href="https://www.amazon.com/gp/product/B09N7L7X7V">key switch</Link
+        >.
+    </p>
+
+    <ImageText
+        src="/Images/alarm-module-wiring-guide.webp"
+        alt="Alarm module wiring guide"
+    >
+        <p>
+            Wire colors vary, depending on which side of the connector plug
+            you're looking at.
+        </p>
+        <ul>
+            <li>Alarm red = harness red with white stripe</li>
+            <li>Alarm orange = harness yellow</li>
+            <li>Alarm pink = harness blue with white stripe</li>
+        </ul>
+    </ImageText>
+
+    <h2>Before You Start</h2>
+
+    <ImageText src="/Images/alarm-module.jpg" alt="Alarm module">
+        <p>
+            If you are intending to bypass the alarm because you believe it is
+            faulty, first triple check that it's the alarm that's causing
+            issues. Take off your seat by undoing the two bolts, then remember
+            to pull up on the front while sliding it forward. Identify the alarm
+            module, pictured here.
+        </p>
+    </ImageText>
+
+    <ImageText
+        src="/Images/shorting-alarm-wires.jpg"
+        alt="Shorting alarm wires"
+    >
+        <p>
+            Follow the wires towards the front of the bike and disconnect the
+            alarm module. Identify the two wires you're interested in on the
+            harness: red with a white stripe + yellow. Take a spare piece of
+            wire or a paperclip and bridge these two wires on the harness side.
+        </p>
+
+        <p>When you do this, the bike should turn on.</p>
+
+        <p>If the bike does not turn on, the problem is not the alarm.</p>
+
+        <p>
+            If the bike does turn on, try reconnecting the alarm to make sure
+            the alarm module still does not work. If the Metacycle still works
+            with the alarm module connected, the problem could have been related
+            to excessive heat.
+        </p>
+    </ImageText>
+
+    <h2>Replacement</h2>
+
+    <p>
+        Order a <Link href="/parts/">replacement part</Link> first. The alarm module
+        is held in with sticky tape. Disconnect the wires from the harness at the
+        plug, then just pull really hard to pry off the module. Keep this part around
+        until the new unit is working, since sometimes they come with a different
+        end - you might need to splice the new unit's wires to the old unit's plug.
+    </p>
+
+    <h2>Replacement + Conditional Bypass</h2>
+
+    <YouTubeText
+        code="ps6psLgywKc"
+        title="Sondors Metacycle Power Failure Repair Alarm Module Modification"
+    >
+        <p>
+            This video shows one Metacycle owner installing a three-position
+            switch and replacing the alarm module. With the switch in one
+            position, the alarm works. In another position it bypasses the
+            alarm.
+        </p>
+        <p>
+            Drilling is required for this option because the original alarm and
+            power button will continue to work with the key in one position.
+        </p>
+    </YouTubeText>
+
+    <p>
+        If you also bridge to the alarm's pink wire (the harness's blue with
+        white stripe), the light on the power button will be enabled as well.
+    </p>
+
+    <h4>Total Bypass</h4>
+
+    <p>
+        Bypass the alarm system by bridging the alarm's orange (harness's
+        yellow) wire and the alarm's red (harness's red with white stripe) wire
+        with a switch. This <Link
+            href="https://www.facebook.com/reel/522363350643168"
+            >Facebook video</Link
+        > demonstrates it working.
+    </p>
+
+    <ul>
+        <li>
+            <Link
+                href="https://www.facebook.com/groups/905762400660923/posts/1312109806692845/"
+                >Facebook post</Link
+            > with links to two different key switch options and lots of pictures.
+            If you're installing a key switch this way, a 20 mm diameter switch fits
+            without drilling.
+        </li>
+
+        <li>
+            <Link
+                href="https://www.facebook.com/groups/905762400660923/posts/1324878278749331/"
+                >Facebook post</Link
+            > with a video showing that a key switch with red and orange wires
+            bridged works.
+        </li>
+    </ul>
+
+    <p>
+        If you'd like to bypass the alarm without splicing wires, look for
+        DJ7065F-2.2-11 connectors, such as <Link
+            href="https://www.amazon.com/automotive-connectors-Connector-DJ7065F-2-2-11-replacement/dp/B0DP1TPT18"
+            >these from Amazon</Link
+        >. Attach your own wires between a keyed switch and the replacement
+        connector.
+    </p>
+</DefaultLayout>

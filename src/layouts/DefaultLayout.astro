@@ -1,0 +1,136 @@
+---
+import Header from '@/components/Header.astro';
+import Footer from '@/components/Footer.astro';
+import { Font } from 'astro:assets';
+
+interface Props {
+    backgroundImage: string; // URL of the background image for the header.
+    color: string; // "white" or "black", for the header text and background color.
+    description: string;
+    title: string;
+    urlFragment: string; // Empty string for home page, otherwise the URL fragment (e.g. "parts/" for the parts page).
+}
+
+// Special syntax to work when used by Markdown and Astro files.
+const { backgroundImage, color, description, title, urlFragment } =
+    Astro.props.frontmatter || Astro.props;
+const site = 'https://metacyclopedia.github.io/';
+const url = `${site}${urlFragment}`;
+const thumbnail = `${site}thumbnail.png`;
+const fullTitle = `Metacycle - ${title}`;
+---
+
+<!doctype html>
+<html lang="en" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <Font cssVariable="--font-ubuntu" />
+        <Font cssVariable="--font-anonymous-pro" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="referrer" content="strict-origin-when-cross-origin" />
+        <link
+            rel="icon"
+            type="image/png"
+            href="/favicon-96x96.png"
+            sizes="96x96"
+        />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <link rel="shortcut icon" href="/favicon.ico" />
+        <link
+            rel="apple-touch-icon"
+            sizes="180x180"
+            href="/apple-touch-icon.png"
+        />
+        <meta name="apple-mobile-web-app-title" content="Metacyclopedia" />
+        <link rel="manifest" href="/site.webmanifest" />
+        <meta property="og:title" content={fullTitle} />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content={url} />
+        <meta property="og:description" content={description} />
+        <meta itemprop="name" content={fullTitle} />
+        <meta itemprop="description" content={description} />
+        <meta itemprop="url" content={url} />
+        <meta itemprop="thumbnailUrl" content={thumbnail} />
+        <meta itemprop="image" content={thumbnail} />
+        <meta itemprop="imageUrl" content={thumbnail} />
+        <meta property="og:image" content={thumbnail} />
+        <link href="/styles.css" rel="stylesheet" nonce="" />
+        <title>{fullTitle}</title>
+        <style is:global>
+            @import url('@/assets/styles.css');
+
+            h2 {
+                font-size: 2em;
+            }
+
+            h4 {
+                font-size: 1.2em;
+            }
+        </style>
+        <style>
+            body {
+                display: flex;
+                margin: 0;
+                font-family: var(--font-ubuntu), sans-serif;
+                font-size: 1.2em;
+                height: 100vh;
+                max-height: 100vh;
+                overflow: hidden;
+                align-items: stretch;
+            }
+
+            .sidebar {
+                display: none;
+                width: 275px;
+                flex-shrink: 0;
+                flex-grow: 0;
+                color: white;
+                background-color: black;
+                padding: 1em;
+                overflow: auto;
+                scrollbar-color: #666 #333;
+                scrollbar-width: thin;
+            }
+
+            @media (min-width: 1280px) {
+                .sidebar {
+                    display: block;
+                }
+            }
+
+            .content-wrapper {
+                flex-grow: 1;
+                scrollbar-width: thin;
+                overflow: auto;
+            }
+
+            .content {
+                max-width: 1115px;
+                margin: 0 auto;
+                padding: 1em;
+            }
+        </style>
+    </head>
+    <body>
+        <nav class="sidebar">
+            <menu-items/>
+        </nav>
+        <div class="content-wrapper">
+            <Header
+                title={title}
+                color={color}
+                backgroundImage={backgroundImage}
+            />
+            <div class="content">
+                <slot />
+            </div>
+            <Footer />
+        </div>
+        <flyout-menu />
+    </body>
+</html>
+<script>
+    import '@/assets/flyout-menu';
+    import '@/assets/menu-items';
+</script>

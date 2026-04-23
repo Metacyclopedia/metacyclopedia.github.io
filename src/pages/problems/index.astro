@@ -1,0 +1,182 @@
+---
+import DefaultLayout from '@/layouts/DefaultLayout.astro';
+import Link from '@/components/Link.astro';
+import CardWrapper from '@/components/CardWrapper.astro';
+import CardImage from '@/components/CardImage.astro';
+import YouTubeText from '@/components/YouTubeText.astro';
+
+const description = 'Solutions for common Metacycle issues.';
+---
+
+<DefaultLayout
+    title="Problems"
+    description={description}
+    urlFragment="problems/"
+    color="black"
+    backgroundImage="/Heading Backgrounds/Sondors-frame-header.webp"
+>
+    <h2>Solutions for Common Metacycle Issues</h2>
+
+    <h4>Seat is Uncomfortable</h4>
+
+    <ul>
+        <li>
+            Replace it! See the <Link href="/parts/">replacement parts</Link> list.
+        </li>
+    </ul>
+
+    <h4>Speedometer is Wrong</h4>
+
+    <ul>
+        <li>
+            The factory sets the circumference of the tire as 1915 mm, but
+            that's inaccurate. Using 1675 works much better.
+        </li>
+        <li>
+            The circumference can be easily changed through the <Link
+                href="/display-unit/">display unit</Link
+            >.
+        </li>
+        <li>
+            It was posted that the circumference can be set through <Link
+                href="/programming/">programming the controller</Link
+            >, but instructions haven't yet been found and settings aren't
+            listed in the <Link href="/serial-protocol/">serial protocol</Link>.
+        </li>
+    </ul>
+
+    <h4>Drive and Reverse Work; Horn, Turn Signals, Light Do Not</h4>
+
+    <ul>
+        <li>
+            The controller hasn't fully started correctly. The system may have
+            been started while charging. Reset the controller by following these
+            steps:
+            <ol>
+                <li>Disconnect the charger from the bike and the wall.</li>
+                <li>Turn off the Metacycle and arm the alarm.</li>
+                <li>Wait one minute for systems to power down.</li>
+                <li>Connect the charger to the bike.</li>
+                <li>Connect the charger to your outlet.</li>
+                <li>Wait a minute. You might hear a click.</li>
+                <li>
+                    Disconnect the charger from the wall and wait for a click
+                    and the LED to turn off.
+                </li>
+                <li>Disconnect the charger from the Metacycle.</li>
+                <li>Disarm the alarm and start the Metacycle normally.</li>
+            </ol>
+        </li>
+    </ul>
+
+    <h4>Is This Road-Legal?</h4>
+
+    <ul>
+        <li>
+            The manufacturer and the paperwork says yes. The DOT allows it. An
+            engineer <Link
+                href="https://electrek.co/2024/05/12/failed-sondors-metacycle-motorcycle-was-never-street-legal-reveals-employee/"
+                >says no</Link
+            >.
+        </li>
+    </ul>
+
+    <h4>Remotes Don't Work / Bike Won't Turn On / Bike Won't Move</h4>
+
+    <ul>
+        <li>Ensure the engine kill switch is set to "On".</li>
+        <li>
+            Wait a while. If the controller or motor is too hot, everything
+            shuts down as a safety measure.
+        </li>
+        <li>
+            Use the <Link href="/battery-activator/">activation dongle</Link> or connect
+            a <Link href="/charger/">charger</Link> to ensure the battery is connected
+            internally - see the steps above.
+        </li>
+        <li>
+            Try changing the batteries in the remotes first and ensuring the
+            LEDs on the remotes are blinking, indicating they are transmitting.
+        </li>
+        <li>
+            Check if the 5 A fuse is <Link
+                href="https://www.facebook.com/groups/905762400660923/posts/1109624910274670/"
+                >burned out</Link
+            >. More information on the <Link href="/battery/">battery page</Link
+            >.
+        </li>
+        <li>
+            If it still doesn't chirp when buttons are pressed, try shorting the
+            orange and red wires under the seat. If the bike turns on, you can
+            <Link href="/parts/">replace the alarm</Link> or <Link
+                href="/removing-alarm-system/">remove it</Link
+            >.
+        </li>
+    </ul>
+
+    <h4>Cables Rub on Rear Tire</h4>
+
+    <ul>
+        <li>
+            Due to the tight clearance and questionable design, the orange power
+            wire or the brake light wires can rub on the rear tire. Use zip ties
+            to secure the cables to the swing arm.
+        </li>
+    </ul>
+
+    <CardWrapper>
+        <CardImage
+            src="/Images/main-drive-line-side.jpg"
+            alt="Main drive line shown using side view"
+        />
+        <CardImage
+            src="/Images/main-drive-line-above.jpg"
+            alt="Main drive line shown above swing arm"
+        />
+        <CardImage
+            src="/Images/brake-wires-side.jpg"
+            alt="Brake wires shown with side view"
+        />
+        <CardImage
+            src="/Images/brake-wires-above.jpg"
+            alt="Brake wires shown above swing arm"
+        />
+    </CardWrapper>
+
+    <h4>Lost Key Fobs</h4>
+
+    <ul>
+        <li>
+            Open the bike and replace the <Link href="/parts/"
+                >alarm module</Link
+            >. It is under the seat. When you buy a new one, it will come with
+            two key fobs.
+        </li>
+        <li>
+            Alternately, there are devices that can clone an existing key fob's
+            signals. You probably won't be able to have it unlock using the
+            proximity sensor, but the unlock and lock button signals could be
+            copied.
+        </li>
+        <li>
+            Lastly, you can <Link href="/removing-alarm-system/"
+                >remove the alarm</Link
+            > and use a key instead.
+        </li>
+    </ul>
+
+    <h4>
+        Unable to Save Sport Mode Current, Busbar Amps, Brand, or Other Settings
+    </h4>
+
+    <YouTubeText
+        code="Y6rSq_TIzTU"
+        title="VOTOL EM260 /2 - Instructions for fixing Read-Only Busbar / Sport Current"
+    >
+        <p>
+            Follow this video to write various settings and flash two different
+            versions of firmware. This has been confirmed to work on a Metacycle
+            controller.
+        </p>
+    </YouTubeText>
+</DefaultLayout>

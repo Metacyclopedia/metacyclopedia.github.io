@@ -1,0 +1,81 @@
+---
+import DefaultLayout from '@/layouts/DefaultLayout.astro';
+import ImageText from '@/components/ImageText.astro';
+import YouTubeText from '@/components/YouTubeText.astro';
+import CardImage from '@/components/CardImage.astro';
+import CardWrapper from '@/components/CardWrapper.astro';
+import Link from '@/components/Link.astro';
+
+const description =
+    'This device triggers an internal relay, allowing a battery pack to power the controller and motor.';
+---
+
+<DefaultLayout
+    title="Battery Activator"
+    description={description}
+    urlFragment="battery-activator/"
+    color="white"
+    backgroundImage="/Heading Backgrounds/battery-activator.jpg"
+>
+    <ImageText
+        src="/Images/activating-battery.jpg"
+        alt="Battery activator in use"
+    >
+        <p>
+            This little device has many different names. Battery activator,
+            activation dongle, and battery marriage dongle are just a few. After
+            reconnecting your battery to the Metacycle, this device will flip a
+            relay internally and allow the battery to power the bike.
+        </p>
+    </ImageText>
+
+    <p>
+        If you have lost your battery activator, do not worry. When you reattach
+        your <Link href="/battery/">battery</Link> to the Metacycle, you can engage
+        the electronics again by simply connecting the <Link href="/charger/"
+            >charger</Link
+        >. When you do, you'll hear the relay click and the bike will have
+        power.
+    </p>
+
+    <YouTubeText
+        code="rWQAdfNzzi8"
+        title="Sondors MetaCycle battery removal and replace"
+    >
+        If you are curious, the QR code on the label is the URL <code
+            >https://qrcodes.pro/phS8wl</code
+        > and that redirect no longer works. It used to go to the battery removal
+        and installation video, which someone else captured using a mobile device.
+    </YouTubeText>
+
+    <p>
+        The battery activator works by supplying 12 V + to pin 3 and GND to pin
+        5. The wiring diagram below is for the charger, but the pin layout is
+        the same. Internally, the board looks fairly simple. It essentially
+        connects two 12 V A23 batteries in parallel to a button, a LED, and the
+        two pins that feed into the Metacycle.
+    </p>
+
+    <CardWrapper>
+        <CardImage
+            src="/Images/battery-activator-plug.jpg"
+            alt="Battery activator plug"
+        />
+        <CardImage
+            src="/Images/battery-activator-unopened.jpg"
+            alt="Battery activator unopened"
+        />
+        <CardImage
+            src="/Images/battery-activator-cover-removed.jpg"
+            alt="Battery activator with cover removed"
+        />
+        <CardImage
+            src="/Images/battery-activator-components.jpg"
+            alt="Battery activator components"
+        />
+        <CardImage
+            src="/Images/charger-wiring-diagram.jpg"
+            alt="Charging port pinout"
+        />
+    </CardWrapper>
+</DefaultLayout>

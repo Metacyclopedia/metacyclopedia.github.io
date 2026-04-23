@@ -1,0 +1,141 @@
+---
+import DefaultLayout from '@/layouts/DefaultLayout.astro';
+import ImageText from '@/components/ImageText.astro';
+import YouTubeText from '@/components/YouTubeText.astro';
+import Link from '@/components/Link.astro';
+import CardImage from '@/components/CardImage.astro';
+import CardWrapper from '@/components/CardWrapper.astro';
+
+const description =
+    'How to recharge the battery pack in the Sondors Metacycle, along with technical details about the charger and charging process.';
+---
+
+<DefaultLayout
+    title="Charger"
+    description={description}
+    urlFragment="charger/"
+    color="white"
+    backgroundImage="/Heading Backgrounds/battery-charger.png"
+>
+    <p>
+        The stock battery charger for the Metacycle is able to fully charge the
+        4 kWh battery in about 5 hours. It accepts both 120 VAC (US) and 240 VAC
+        (EU) and outputs 18 A 84 VDC. It comes with both a NEMA 5/15(US) and
+        Type C / Eurostyle (EU) plug.
+    </p>
+
+    <p>
+        The stock charger uses <Link href="/can-bus/">CAN bus</Link> to properly charge
+        the 72 V battery, though it doesn't appear to be required. If building an
+        aftermarket battery charger, the connector on the Metacycle is a Chogori.
+    </p>
+
+    <p>
+        Connecting the charger can unlock the <Link href="/battery/"
+            >battery</Link
+        > just like the <Link href="/battery-activator/">battery activator</Link
+        > and allow a Metacycle to start if you don't have the activation dongle.
+    </p>
+
+    <ImageText
+        src="/Images/charging-metacycle-at-public-charging-station-v0-7dwml2sri0pa1.webp"
+        alt="Charging at a public station"
+    >
+        <h4>Public Chargers</h4>
+
+        <p>
+            Because the stock battery charger allows for 240 V single phase
+            power (EU), <Link
+                href="https://www.reddit.com/r/metacycle/comments/11x5ngw/charging_metacycle_at_public_charging_station/"
+                >one can use public chargers</Link
+            > and a J1772 to NEMA 5/15 (or 5/20) adapter to charge the motorcycle
+            during a trip.
+        </p>
+    </ImageText>
+
+    <YouTubeText
+        code="PDbgJK4OnP0"
+        title="How to charge your Sondors Metacycle"
+    >
+        <h4>Charging Procedure</h4>
+
+        <ol>
+            <li>
+                If charging the battery directly (out of the Metacycle), attach
+                the adaptor cord to the battery.
+            </li>
+
+            <li>
+                Plug the cable with the blue end into your Metacycle or the
+                adaptor cord.
+            </li>
+
+            <li>
+                Attach the correct plug to the charger (US or EU version plug).
+            </li>
+
+            <li>Plug in the charger.</li>
+        </ol>
+
+        <h4>When Done Charging</h4>
+
+        <ol>
+            <li>Disconnect the charger from the wall outlet.</li>
+            <li>
+                Wait for the click from your Metacycle. It should happen fairly
+                soon.
+            </li>
+            <li>
+                Disconnect the charger from the Metacycle or the battery
+                adapter.
+            </li>
+        </ol>
+    </YouTubeText>
+
+    <p>
+        The most common problem with the charger is when it is blinking
+        red-red-green, which means there's a communication error. The charger
+        will still charge the battery. Michael Mueller posted April 30, 2025 (no
+        longer available) about how he diagnosed his issue and found that a wire
+        that wasn't soldered to the connector, so he soldered it and made it
+        work reliably. Michael also made a <Link
+            href="https://www.facebook.com/reel/1336891227588133/"
+            >smaller, faster charger</Link
+        >. To get the charging circuit to work, pin 3 needs 12 V and pin 6 needs
+        to be grounded, which are the same pins the <Link
+            href="/battery-activator/">battery activator</Link
+        > uses.
+    </p>
+
+    <CardWrapper>
+        <CardImage
+            src="/Images/charger-wiring-diagram.jpg"
+            alt="Charging port pinout"
+        />
+        <CardImage
+            src="/Images/charger-led-light.png"
+            alt="Battery charger light"
+        />
+        <CardImage
+            src="/Images/indicator-light-status-failure.png"
+            alt="Battery charger indicator light status"
+        />
+        <CardImage
+            src="/Images/battery-light-codes.jpg"
+            alt="Battery charger light flash codes"
+        />
+    </CardWrapper>
+
+    <ImageText src="/Parts/charging-adapter.jpg" alt="Charging adapter">
+        <h4>Charge Adapter Cable</h4>
+        <p>
+            Metacycles come with a cable that can connect the charger directly
+            to the battery so one can charge without putting the battery back
+            into the bike, such as when the battery is removed for winter. The
+            left side is a circular Chogori connector. The right is
+            FEFB-10009A-02. Both can be found on the <Link href="/parts/"
+                >parts listing</Link
+            >.
+        </p>
+    </ImageText>
+</DefaultLayout>

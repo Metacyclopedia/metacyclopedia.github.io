@@ -1,0 +1,107 @@
+---
+import DefaultLayout from '@/layouts/DefaultLayout.astro';
+import ImageText from '@/components/ImageText.astro';
+import CardImage from '@/components/CardImage.astro';
+import CardWrapper from '@/components/CardWrapper.astro';
+import Link from '@/components/Link.astro';
+
+const description =
+    'All about the Votol EM200-2SP controller used in the Sondors Metacycle.';
+---
+
+<DefaultLayout
+    title="Controller"
+    description={description}
+    urlFragment="controller/"
+    color="white"
+    backgroundImage="/Heading Backgrounds/em200-2sp.png"
+>
+    <p>
+        The Metacycle's controller is a <Link
+            href="https://votol.cn/product/votol-em200-2/">Votol EM200-2SP</Link
+        >. It is not the Votol EM200.
+    </p>
+
+    <ImageText
+        src="/Images/controller-specs-from-votol.png"
+        alt="Controller ratings"
+    >
+        <ul>
+            <li>Voltage: 60-72 V</li>
+            <li>
+                Current: rated 200 A, boost 250 A (some say 150 A nominal, some
+                say peak 250 A)
+            </li>
+            <li>Flux weaking ratio: 200%</li>
+            <li>
+                IP67 waterproof rating (some places say IP65 and users report
+                issues with water destroying the controller)
+            </li>
+            <li>
+                Uses <Link href="/can-bus/">CAN bus</Link> to communicate with the
+                BMS in the battery
+            </li>
+        </ul>
+    </ImageText>
+
+    <p>
+        The numbers you can get from <Link
+            href="https://www.reddit.com/r/metacycle/comments/ztytv7/metacycle_general_information_oem_parts_mods_etc/"
+            >different</Link
+        >
+        <Link href="https://votol.cn/product/votol-em200-2/">sites</Link> vary, so
+        use caution and monitor the temperature when attempting to run more current
+        through the controller. It's entirely possible that two controllers with the
+        same model have different internals.
+    </p>
+
+    <p>
+        While rated up to 250 A boost (600 A peak), Metacycle factory settings
+        limit it to under 200A (220A for sport mode). Perhaps that's to help
+        ensure the controller keeps working, since <Link
+            href="https://electrek.co/2024/05/12/failed-sondors-metacycle-motorcycle-was-never-street-legal-reveals-employee/"
+            >an engineer on the project</Link
+        > says this part can be of questionable quality.
+    </p>
+
+    <ul>
+        <li>
+            <Link href="/Downloads/EM200-2SP Wiring Diagram.pdf"
+                >Wiring Diagram Documentation</Link>
+        </li>
+        <li>
+            <Link href="/Downloads/Votol Controller Debugging Manual.pdf"
+                >VOTOL Controller Debugging Manual</Link>
+        </li>
+    </ul>
+
+    <p>
+        There is additional information about <Link href="/programming/"
+            >programming the controller</Link
+        > since this is a generic controller and it needs detailed information about
+        the system it's controlling.
+    </p>
+
+    <CardWrapper>
+        <CardImage
+            src="/Images/em200-2sp drawing.jpg"
+            alt="Controller diagram"
+        />
+        <CardImage
+            src="/Images/controller interface.jpg"
+            alt="Controller interface"
+        />
+        <CardImage
+            src="/Images/em200-2sp wiring.jpg"
+            alt="Controller wiring harness"
+        />
+        <CardImage
+            src="/Images/Connector Identification.jpeg"
+            alt="Controller wiring harness in use"
+        />
+        <CardImage
+            src="/Images/controller-cable-identification.webp"
+            alt="Controller cable identification"
+        />
+    </CardWrapper>
+</DefaultLayout>

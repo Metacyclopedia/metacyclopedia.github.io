@@ -1,0 +1,94 @@
+---
+import DefaultLayout from '@/layouts/DefaultLayout.astro';
+import ImageText from '@/components/ImageText.astro';
+import CardImage from '@/components/CardImage.astro';
+import CardWrapper from '@/components/CardWrapper.astro';
+import Link from '@/components/Link.astro';
+
+const description = 'Using Bluetooth to tune the controller of the Metacycle.';
+---
+
+<DefaultLayout
+    title="Connect via Bluetooth"
+    description={description}
+    urlFragment="connect-via-bluetooth/"
+    color="white"
+    backgroundImage="/Heading Backgrounds/votol-bluetooth.jpg"
+>
+    <ImageText src="/Images/votol-bluetooth-adapter.jpg" alt="Bluetooth dongle">
+        <p>
+            The Votol Bluetooth adapter can be readily found online. It connects
+            the <Link href="/can-bus/">CAN bus</Link> of the Metacycle to Bluetooth,
+            which then be used for <Link href="/programming/">programming</Link> the
+            <Link href="/controller/">controller</Link>.
+        </p>
+
+        This documents how the Bluetooth adapter could be wired in order to
+        allow communication on the CAN bus.
+    </ImageText>
+
+    <p>
+        This Bluetooth programmer will talk to the controller to program it.
+        There are posts describing how to connect to the <Link
+            href="/controller/">Votol EM200-2SP</Link
+        > directly to the Bluetooth adapter, but that requires support from the wiring
+        harness and I have not seen any posts where Metacycle owners have used this
+        approach.
+    </p>
+
+    <p>
+        The CAN bus protocol is also exposed through the charging port. The
+        issue with this method is that a special connector is required and
+        people don't find this as convenient.
+    </p>
+
+    <p>
+        Luckily, there's a third option that is readily available and doesn't
+        require any uncommon connectors. The Bluetooth adapter can be wired to
+        the USB port within the phone charging compartment.
+    </p>
+
+    <CardWrapper>
+        <CardImage src="/Images/usb-pinout.png" alt="USB pinout diagram" />
+        <CardImage
+            src="/Images/usb-wires.png"
+            alt="USB cable with wires exposed"
+        />
+        <CardImage
+            src="/Images/debugging-port-pinout.png"
+            alt="Wiring harness pinout"
+        />
+    </CardWrapper>
+
+    <p>
+        The pinout diagram is for the wiring harness, where the Bluetooth
+        adapter plugs in. Similarly, the colors listed are for the harness side.
+        On the Bluetooth adapter, colors can vary a bit; orange appears yellow
+        and +5 V is red.
+    </p>
+
+    <CardWrapper>
+        <CardImage
+            src="/Images/bluetooth-top-wired-to-usb.jpg"
+            alt="Bluetooth adapter front"
+        />
+        <CardImage
+            src="/Images/bluetooth-bottom-wired-to-usb.jpg"
+            alt="Bluetooth adapter back"
+        />
+    </CardWrapper>
+
+    <p>
+        The images presented here are with a USB cable soldered directly to the
+        board within the Bluetooth adapter. The original cable is shown with the
+        correct orientation as a reference to show original wire colors. To
+        attach this directly to your USB port, connect the following wires.
+    </p>
+
+    <ul>
+        <li>USB black (ground) → Bluetooth black</li>
+        <li>USB red (+5 V) → Bluetooth red</li>
+        <li>USB green (Data +, or CAN +) → Bluetooth blue</li>
+        <li>USB white (Data -, or CAN -) → Bluetooth yellow/orange</li>
+    </ul>
+</DefaultLayout>

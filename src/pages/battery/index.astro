@@ -1,0 +1,131 @@
+---
+import DefaultLayout from '@/layouts/DefaultLayout.astro';
+import ImageText from '@/components/ImageText.astro';
+import YouTubeText from '@/components/YouTubeText.astro';
+import Link from '@/components/Link.astro';
+import CardImage from '@/components/CardImage.astro';
+import CardWrapper from '@/components/CardWrapper.astro';
+
+const description =
+    'About the 4 kWh battery pack used to power the Sondors Metacycle.';
+---
+
+<DefaultLayout
+    title="Battery"
+    color="white"
+    backgroundImage="/Heading Backgrounds/battery.png"
+    description={description}
+    urlFragment="battery/"
+>
+    <p>
+        The 4 kWh battery in the Metacycle is a 72 V 54.4 Ah NCM lithium battery
+        pack. SiAECOSYS advertises it as a 100 A continuous, 250 A peak draw.
+        Internally, there is a 300 A fuse. The BMS uses <Link href="/can-bus/"
+            >CAN bus</Link
+        > communication.
+    </p>
+
+    <p>
+        It is believed that the battery is built by Greenway. See this <Link
+            href="/files/Farasis_Broschure-Produktubersicht_Web_Adresse_DE.pdf"
+            >Farasis brochure</Link
+        >.
+    </p>
+
+    <p>
+        For the longevity of your battery, follow these general lithium battery
+        guidelines.
+    </p>
+
+    <ul>
+        <li>
+            If storing for extended periods of time, disconnect the battery so
+            the Metacycle's alarm module doesn't overly drain it.
+        </li>
+        <li>
+            Do not charge the battery when it is cold. Lithium batteries can be
+            permanently damaged when charged near freezing (32° F) temperatures
+            or lower.
+        </li>
+        <li>
+            When reconnecting your battery, attach your <Link href="/charger/"
+                >charger</Link
+            > or the <Link href="/battery-activator/">battery activator</Link> to
+            power the solenoid, allowing power to transfer to the controller and the
+            motor. You'll hear a click inside the bike when you do.
+        </li>
+    </ul>
+
+    <YouTubeText
+        code="rWQAdfNzzi8"
+        title="Sondors MetaCycle battery removal and replace"
+    >
+        <p>Battery Removal Steps</p>
+
+        <ol>
+            <li>
+                Remove two T40 bolts from battery cover (the side without a
+                charging port).
+            </li>
+
+            <li>
+                From the bottom, pull the cover upwards and then pull out to
+                remove the shield.
+            </li>
+
+            <li>
+                Remove two T50 bolts from battery brackets and remove the
+                brackets.
+            </li>
+
+            <li>Disconnect orange wire and nudge battery out.</li>
+
+            <li>Disconnect black wire and nudge battery out.</li>
+
+            <li>Disconnect the harness.</li>
+
+            <li>Remove battery.</li>
+        </ol>
+    </YouTubeText>
+
+    <p>
+        Installation of the battery is the same process in reverse. Sliding the
+        battery into the compartment can be tricky because the battery might
+        tilt or jam while being inserted.
+    </p>
+
+    <p>
+        The Metacycle comes with a charging cable that allows the battery to
+        connect to the charger directly. It attaches to the harness port.
+    </p>
+
+    <ImageText src="/Images/5a-fuse.jpg" alt="Battery fuse location">
+        <p>
+            The battery compartment also hides a 5 A blade fuse. One owner found
+            this when <Link
+                href="https://www.facebook.com/groups/905762400660923/posts/1035581787678983/"
+                >diagnosing a problem</Link
+            >.
+        </p>
+    </ImageText>
+
+    <CardWrapper>
+        <CardImage
+            src="/Images/astm-a2209-300-fuse.png"
+            alt="ASTM A2209-300 fuse"
+        />
+        <CardImage
+            src="/Images/battery-internals.jpg"
+            alt="Battery internals"
+        />
+    </CardWrapper>
+
+    <p>
+        Another owner kindly took a photo of the battery internals, showing the
+        300 A fuse in the upper left. It is an <Link
+            href="https://astml.com/product/a2209-seriesev-fuse150a350a150v200vdc"
+            >ASTM A2209-300 fuse</Link
+        >. People have reported drawing more than 300 A for shorter time
+        periods, so it's believed that this is a slow-burn fuse.
+    </p>
+</DefaultLayout>

@@ -1,0 +1,78 @@
+---
+import DefaultLayout from '@/layouts/DefaultLayout.astro';
+import YouTubeText from '@/components/YouTubeText.astro';
+import Link from '@/components/Link.astro';
+
+const description =
+    'Video guides for how to accomplish various tasks with the Metacycle.';
+---
+
+<DefaultLayout
+    title="Tutorials"
+    description={description}
+    urlFragment="tutorials/"
+    color="white"
+    backgroundImage="/Heading Backgrounds/video-tutorial.png"
+>
+    <p>
+        Battery Removal - <Link
+            href="https://www.reddit.com/r/metacycle/comments/wl2qoh/tutorial_2_battery_removal/"
+            >Reddit post</Link
+        >
+    </p>
+
+    <p>
+        Front and Rear Turn Signal Swap - <Link
+            href="https://www.reddit.com/r/metacycle/comments/wl939j/tutorial_3_front_and_rear_turn_signal_swap_with/"
+            >Reddit post</Link
+        >
+    </p>
+
+    <p>
+        Key fob battery change - <Link
+            href="https://www.facebook.com/groups/905762400660923/posts/1015035169733645/"
+            >Facebook post</Link
+        >
+    </p>
+
+    <p>
+        Seat removal - <Link
+            href="https://www.reddit.com/r/metacycle/comments/wkayzi/tutorial_1_seat_removal/"
+            >Reddit post</Link
+        >
+    </p>
+
+    <p>
+        Seat removal and replacement - <Link
+            href="https://www.youtube.com/watch?v=UJrRIZGzl2A"
+            >YouTube video</Link
+        >
+    </p>
+
+    <p>
+        Soft start disabling and tweaking controller settings - <Link
+            href="https://www.youtube.com/watch?v=poWb-U_XTHU"
+            >YouTube video</Link
+        >
+    </p>
+
+    <YouTubeText
+        code="vdKBwa3N2Kw"
+        title="Metacycle Wheel Circumference Adjustment"
+    >
+        <p>
+            Adjusting the wheel circumference to get an accurate speedometer
+            reading.
+        </p>
+    </YouTubeText>
+
+    <YouTubeText
+        code="Y6rSq_TIzTU"
+        title="VOTOL EM260 /2 - Instructions for fixing Read-Only Busbar / Sport Current"
+    >
+        <p>
+            Fix Read-Only Busbar and Sport Current - In case you seemingly can't
+            write settings to your controller.
+        </p>
+    </YouTubeText>
+</DefaultLayout>

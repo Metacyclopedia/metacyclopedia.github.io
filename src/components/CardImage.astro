@@ -1,0 +1,22 @@
+---
+import Card from '@/components/Card.astro';
+import Link from '@/components/Link.astro';
+
+interface Props {
+    alt: string;
+    src: string;
+}
+
+const { alt, src } = Astro.props;
+---
+
+<style>
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+</style>
+
+<Card>
+    <Link href={src}><img src={src} alt={alt} /></Link>
+</Card>

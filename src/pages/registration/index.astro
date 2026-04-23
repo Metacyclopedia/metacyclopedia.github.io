@@ -1,0 +1,80 @@
+---
+import DefaultLayout from '@/layouts/DefaultLayout.astro';
+import ImageText from '@/components/ImageText.astro';
+
+const description = 'Where to find the VIN and how to register your Metacycle.';
+---
+
+<DefaultLayout
+    title="Registration & VIN"
+    description={description}
+    urlFragment="registration/"
+    color="white"
+    backgroundImage="/Heading Backgrounds/metacycle-sondors-header.webp"
+>
+    <h2>Vehicle Identification Number (VIN)</h2>
+
+    <ImageText src="/Images/vin.png" alt="VIN location on the Metacycle">
+        <p>
+            The VIN is located on the left side of the vehichle's head tube. In
+            this photo, the VIN is LB2S1MEF4MX?????? (the last six digits are
+            obscured).
+        </p>
+
+        <ul>
+            <li>
+                First three are the world manufacturer identifier: LB2 =
+                ZHEJIANG GEELY MING INDUSTRIAL CO., LTD
+            </li>
+            <li>
+                This manufacturer's country is the first character: L = China
+            </li>
+            <li>Fourth position is the make: S = Sondors</li>
+            <li>
+                Fifth and sixth spots are the model and type: 1 = Metacycle, M =
+                Metacycle
+            </li>
+            <li>
+                Seventh and eigth are engine type and net horsepower: E =
+                Electric, F = 11 HP (specs say 20 HP)
+            </li>
+            <li>The ninth digit is a check digit: 4</li>
+            <li>Tenth spot is the year: M = 2021</li>
+            <li>
+                Eleventh place is the plant of manufacture: X = SiA (for
+                SiAECOSYS)
+            </li>
+            <li>
+                Finally, the last six are a serial number for the sequence of
+                manufacture.
+            </li>
+        </ul>
+    </ImageText>
+
+    <h2>Vehicle Emission Control Information (VECI)</h2>
+
+    <ImageText
+        src="/Images/veci.png"
+        alt="VECI label location on the Metacycle"
+    >
+        <p>
+            The VECI label is on the right side of the motorcycle's head tube.
+            The DMV in some states may require information from this label.
+        </p>
+    </ImageText>
+
+    <h2>Engine Number</h2>
+
+    <ImageText
+        src="/Images/engine-number.png"
+        alt="Engine number location on the Metacycle"
+    >
+        <p>
+            The engine number is the most difficult piece to find. The engine is
+            within the rear wheel and the engine number is hiding behind the
+            disc brake. Look through the windows in the disc brake to see the
+            stamped information. It will start with "SIA72V800WN" and the engine
+            number is the following 12 digits.
+        </p>
+    </ImageText>
+</DefaultLayout>

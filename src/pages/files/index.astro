@@ -1,0 +1,225 @@
+---
+import DefaultLayout from '@/layouts/DefaultLayout.astro';
+import Link from '@/components/Link.astro';
+
+const description =
+    'Wiring digrams, manuals, and other files related to the Sondors Metacycle.';
+---
+
+<DefaultLayout title="Files" description={description} urlFragment="files/" color="white" backgroundImage="/Heading Backgrounds/matrix.png">
+    <h2>Sondors Metacycle</h2>
+
+    <ul>
+        <li>
+            <Link href="/Downloads/Sondors Metacycle e-Motorcycle User Manual.pdf"
+                >User Manual</Link
+            > - What every Metacycle owner should have.
+        </li>
+
+        <li>
+            <Link href="/Downloads/SONDORS_Metacycle_Manual.pdf">Operations Manual</Link> - More about
+            your Metacycle.
+        </li>
+
+        <li>
+            <Link href="/Downloads/Metacycle_Warranty.pdf">Metacycle Warranty</Link> - Probably not
+            worth a lot.
+        </li>
+    </ul>
+
+    <h2>Display</h2>
+
+    <ul>
+        <li>
+            <Link href="/Downloads/DKD Programming Codes.pdf">DKD Programming Codes</Link> - How to
+            program the display unit directly (no software needed).
+        </li>
+
+        <li>
+            <Link href="/Downloads/061 DKD adjustable speedometer user manual 20210429.pdf"
+                >DKD Adjustable Speedometer User Manual</Link
+            > - Lists the programming codes.
+        </li>
+
+        <li>
+            <Link href="/Downloads/SiAECOSYS DKD Display User Manual.pdf"
+                >SiAECOSYS DKS Display User Manual</Link
+            > - FAQ, measurements, pinouts, diagrams.
+        </li>
+    </ul>
+
+    <h2>Controller Manuals and Specs</h2>
+
+    <ul>
+        <li>
+            <Link href="/Downloads/EM200-2SP Wiring Diagram.pdf">EM200/2SP Wiring Diagram</Link> -
+                There's also the <Link href="/Downloads/EM-200 Wiring Diagram.pdf"
+                >EM200 wiring diagram</Link
+            >, which may provide information because that unit is similar.
+        </li>
+
+        <li>
+            <Link href="/Downloads/Votol Controller Debugging Manual.pdf"
+                >Votol Controller Debugging Manual</Link
+            > - Pinouts, wiring diagrams, software setting descriptions.
+        </li>
+
+        <li>
+            <Link href="/Downloads/controller interface.jpg">Controller Interface</Link> - Image
+            showing pins and connections.
+        </li>
+
+        <li>
+            <Link href="/Downloads/Controller-programming-manual---20221125(1).pdf"
+                >Progamming Manual of the Votol Controller</Link
+            > - Goes through the Windows software and programming pages in detail.
+        </li>
+
+        <li>
+            <Link href="/Downloads/Farasis_Broschure-Produktubersicht_Web_Adresse_DE.pdf"
+                >Farasis Broschure Produktubersicht Web Adresse</Link
+            > - Battery brochure.
+        </li>
+
+        <li>
+            <Link href="/Downloads/Controller-self-learning-function.pdf"
+                >Controller Self Learning Manual</Link
+            > - Lets the controller analyze the motor for better performance.
+        </li>
+
+        <li>
+            <Link
+                    href="/Downloads/Fault Codes.xlsx"
+                >Controller Fault Codes</Link
+            > - This explains fault code bitmasks that are used by the programming
+            software and are transmitted via CAN. It also shows the fault codes associated
+            to each series of blinking lights on the controller. There's also a PDF
+            with the same information.
+        </li>
+    </ul>
+
+    <h2>Controller Programming Software (Learn More about Programming)</h2>
+
+    <p>
+        All software was scanned by <Link href="https://virustotal.com/"
+            >VirusTotal</Link
+        > before being listed. After downloading, you should exercise caution and scan it again with the tool of your choice.
+        Send links or contact information for other
+        software that works for programming the controller.
+    </p>
+
+    <h4>USB to Serial Driver</h4>
+
+    <ul>
+        <li>
+            This driver is not necessary for the <Link href="/programming-cable/"
+                >USB adapter</Link
+            >. Microsoft's driver works fine under Windows 10. You will know it
+            works when it appears as a COM port in Device Manager after plugging
+            it into your computer.
+        </li>
+    </ul>
+
+    <h4>EM-2 Series Software</h4>
+
+    <ul>
+        <li>
+            If you have issues running this software, the publisher suggests you
+            <Link
+                    href="/Software/PC adjust for Votol-2 series controller software.docx"
+                >change your system locale</Link
+            > to China. This doesn't appear to be the case for most users.
+        </li>
+
+                <li><Link href="/Software/EM_V3-40.zip">EM_V3-40</Link></li>
+
+        <li><Link href="/Software/EM_V3-50.zip">EM_V3-50</Link></li>
+
+        <li>
+            <Link href="/Downloads/Factory 2021 Metacycle Settings.ini"
+                >Factory 2021 Metacycle Settings</Link
+            > - Just in case you needed a backup but didn't make one. It was created
+            with EM V3-40. Note: the last 7 lines of this file could be any random
+            numbers; see the <Link href="/serial-protocol/"
+                >serial protocol's Config Settings 7</Link
+            > for info.
+        </li>
+    </ul>
+
+    <h4>Votol Software (unknown series)</h4>
+
+    <ul>
+        <li>
+            <Link href="/Software/EM_V3-sport-9 XY-03-P.zip">EM_V3-sport-9 XY-03-P</Link> - Appears
+            the same as EM_V3-40 with a different font and GUI element spacing.
+        </li>
+    </ul>
+
+    <h4>Vino</h4>
+
+    <p>
+        This is third-party software that appears to be based on EM_V3-40. It's <Link
+            href="https://vin.fast.id.vn/">homepage</Link
+        > lists other versions, but my virus scanner didn't like them. Asking the
+        author to figure out why it's being flagged as having a virus didn't produce
+        positive results.
+    </p>
+
+    <ul>
+        <li>
+            <Link href="/Software/EM_VINO_Dongwei remake.zip">EM_VINO_Dongwei remake</Link> - Appears
+            the same as EM_V3-40.
+        </li>
+
+        <li>
+            <Link href="/Software/Votol Vino 0.1.9 x86 duo.zip">Votol Vino 0.1.9 x86 duo</Link> -
+            Vietnamese language options.
+        </li>
+
+        <li>
+            <Link href="/Software/Votol Vino 0.2.0 vi.zip">Votol Vino 0.2.0 vi</Link> - More translations.
+        </li>
+
+        <li>
+            <Link href="/Software/Votol Vino 0.2.0 x64.zip">Votol Vino 0.2.0 x64</Link> - More translations.
+        </li>
+
+        <li>
+            <Link href="/Software/Votol Vino 0.2.0 x86 duo.zip">Votol Vino 0.2.0 x86 duo</Link> -
+            More Vietnamese translations.
+        </li>
+
+        <li>
+            <Link href="/Software/Votol Vino 0.2.1 EN.zip">Votol Vino 0.2.1 EN</Link> - English version.
+        </li>
+
+        <li>
+            <Link href="/Software/Votol Vino 0.2.2 EN.zip">Votol Vino 0.2.2 EN</Link> - English version.
+        </li>
+
+        <li>
+            <Link href="/Software/Votol Vino 0.2.5 EN.zip">Votol Vino 0.2.5 EN</Link> - English version.
+        </li>
+
+        <li>
+            <Link href="/Software/Votol Vino 0.5.1.zip">Votol Vino 0.5.1</Link> - English version.
+            Latest version of this series.
+        </li>
+
+        <li>
+            <Link href="/Software/EM_VINO_V1_2025_Final_Dongwei.zip"
+                >EM_VINO_V1_2025_Final_Dongwei</Link
+            > - Starts on page 3 even though page 1 is selected. Switch pages, then
+            go back to page 1 to see the serial port speed settings.
+        </li>
+    </ul>
+
+    <h4>Miscellaneous</h4>
+
+    <ul>
+        <li>
+            <Link href="/Downloads/Throttle Manual.pdf">Throttle Manual</Link> - This looks more like
+            technical drawings than a "how to use" manual.
+        </li>
+    </ul>
+</DefaultLayout>

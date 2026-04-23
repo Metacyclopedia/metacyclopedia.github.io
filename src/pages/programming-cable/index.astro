@@ -1,0 +1,115 @@
+---
+import DefaultLayout from '@/layouts/DefaultLayout.astro';
+import Link from '@/components/Link.astro';
+import ImageText from '@/components/ImageText.astro';
+import CardWrapper from '@/components/CardWrapper.astro';
+import CardImage from '@/components/CardImage.astro';
+
+const description =
+    'Detailed information about the USB adapter that can be used to program the Metacycle controller.';
+---
+
+<DefaultLayout
+    title="Programming Cable"
+    description={description}
+    urlFragment="programming-cable/"
+    color="white"
+    backgroundImage="/Heading Backgrounds/usb-adapter.jpg"
+>
+    <p>
+        This programming cable is used to <Link href="/programming/"
+            >program the controller</Link
+        > either through the <Link href="/connect-through-usb-port/"
+            >Metacycle's USB port</Link
+        > or using the <Link href="/connect-with-20-pin-cable/"
+            >20-pin Molex cable</Link
+        > behind the display.
+    </p>
+
+    <p>
+        There's no need to install a driver with this adapter, at least for
+        Windows 10. The default driver from Microsoft is the one that should be
+        used.
+    </p>
+
+    <p>When communicating, this operates at 115200 baud.</p>
+
+    <ImageText src="/Images/usb-votol-cable.jpg" alt="Programming cable">
+        <h4>VOTOL EM200-2SP Programming Cable</h4>
+
+        <p>
+            <Link href="https://www.amazon.com/s?k=usb+votol+em+200"
+                >Amazon</Link
+            >, <Link href="https://a.aliexpress.com/_mMgNV5e">AliExpress</Link>,
+            and <Link href="https://www.ebay.com/sch/i.html?_nkw=usb+votol"
+                >eBay</Link
+            > have these. You will need to modify the cable so it is able to plug
+            in correctly. Make sure to get the one that looks like this image - with
+            the black electrical tape wrapped around the device.
+        </p>
+    </ImageText>
+
+    <p>
+        The cable is compatible with these other models. However, the list
+        appears to get some things slightly off, so these have been matched
+        against the manufacturer's website and those models are in parenthesis
+        when there's a difference.
+    </p>
+
+    <ul>
+        <li>EM50-4P (EM50-4)</li>
+        <li>
+            EM80GTSP (there are two versions - this cable only supports the
+            version that uses CAN)
+        </li>
+        <li>
+            EM100-4P (incorrectly listed and manufacturer lists another cable;
+            EM100SP uses this cable)
+        </li>
+        <li>EM150-2SP</li>
+        <li>EM200-2P (EM200-2SP)</li>
+        <li>EM260P (EM260SP)</li>
+        <li>
+            EM350P (not on manufacturer's site; might be SV120 with 350 A, which
+            uses the same cable)
+        </li>
+    </ul>
+
+    <CardWrapper>
+        <CardImage
+            src="/Images/usb-adapter-front.jpg"
+            alt="Front of the adapter"
+        />
+        <CardImage
+            src="/Images/usb-adapter-back.jpg"
+            alt="Back of the adapter"
+        />
+        <CardImage
+            src="/Images/adapter-correctly-wired.jpg"
+            alt="Showing the two pins that are needed"
+        />
+    </CardWrapper>
+    <p>
+        Only the H (Data +) and L (Data -) pins are required to be connected.
+        The positive and negative wires are taped off so they can't make contact
+        with any other wire.
+    </p>
+
+    <p>The pins are labeled on the bottom of the device.</p>
+
+    <p>
+        Make sure you use the correct cable. Both of these cable lists are
+        provided by the manufacturer. The <Link
+            href="https://votol.cn/product/votol-em200-2/"
+            >Votol EM200-2SP site</Link
+        > clearly indicates that we want the blue adapter with the black band around
+        it.
+    </p>
+    <CardWrapper>
+        <CardImage src="/Images/votol-usb-cables.png" alt="VOTOL USB cables" />
+        <CardImage
+            src="/Images/votol-usb-cables-2.jpg"
+            alt="VOTOL USB cables (alt)"
+        />
+    </CardWrapper>
+</DefaultLayout>

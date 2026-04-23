@@ -1,0 +1,127 @@
+---
+import DefaultLayout from '@/layouts/DefaultLayout.astro';
+import ImageText from '@/components/ImageText.astro';
+import CardImage from '@/components/CardImage.astro';
+import CardWrapper from '@/components/CardWrapper.astro';
+import YouTubeText from '@/components/YouTubeText.astro';
+import Link from '@/components/Link.astro';
+
+const description =
+    'Use a custom 20-pin cable to connect to the CAN bus of the Metacycle.';
+---
+
+<DefaultLayout
+    title="Connect with 20-pin Cable"
+    description={description}
+    urlFragment="connect-with-20-pin-cable/"
+    color="white"
+    backgroundImage="/Heading Backgrounds/programming-20-pin.png"
+>
+    <p>
+        If you choose this method, you will need the programming cable. They
+        also either need an adaptor cable or just cut the end off the cable and
+        wire directly to the 20-pin connector. This cable will plug into the
+        display's cable and allow you to program the Metacycle.
+    </p>
+
+    <ImageText src="/Images/usb-votol-cable.jpg" alt="Programming cable">
+        <h4>Votol EM200-2SP Programming Cable</h4>
+        <p>
+            <Link href="https://www.amazon.com/s?k=usb+votol+em+200"
+                >Amazon</Link
+            >, <Link
+                href="https://www.aliexpress.us/w/wholesale-votol-programming-cable.html?spm=a2g0o.detail.search.0"
+                >AliExpress</Link
+            >, and <Link href="https://www.ebay.com/sch/i.html?_nkw=usb+votol"
+                >eBay</Link
+            > have these. Make sure to find ones that are blue with a black band.
+            Ones without a black band are the wrong version. <Link
+                href="/programming-cable/">Lean more</Link
+            > about this item.
+        </p>
+    </ImageText>
+
+    <ImageText
+        src="/Images/20-circuit-connector.jpg"
+        alt="20-pin Molex connector"
+    >
+        <h4>20-pin Molex Connector</h4>
+        <ul>
+            <li>
+                <Link
+                    href="https://www.amazon.com/Molex-Circuits-Receptacle-Terminals18-24-Mini-Fit/dp/B079DCBCBZ"
+                    >Amazon</Link
+                > supplies this part and it comes with pins you crimp onto wires.
+                You'll want the female end, as pictured here. This will attach to
+                the cable on the bike behind the display.
+            </li>
+        </ul>
+    </ImageText>
+
+    <ImageText src="/Images/4-circuit-connector.png" alt="4-Circuit connector">
+        <h4>4-Circuit Connector (Optional)</h4>
+        <ul>
+            <li>
+                <Link
+                    href="https://www.amazon.com/WMYCONGCONG-Automotive-Electrical-Connectors-Motorcycle/dp/B07GPS3ZBN"
+                    >Amazon</Link
+                > has a kit that has a piece to connect to the programming cable if
+                you want to keep your cable intact. This method is what's shown in
+                the video. If you want to save a few dollars, loosen the screws on
+                the USB adapter and pull out the wire, then use your own wire to hook
+                up to the 20-pin connector.
+            </li>
+        </ul>
+    </ImageText>
+
+    <YouTubeText
+        code="poWb-U_XTHU"
+        title="Metacycle First Hack"
+    >
+        <p>
+            The video shows how the programming cable was kept intact and an
+            adaptor cable was created.
+        </p>
+
+        <p>
+            <b>Comments indicate that the wiring diagram is wrong.</b> Make sure the
+            adapter's hooked up this way:
+        </p>
+
+        <ul>
+            <li>TXD → Pin 1 (CAN-)</li>
+            <li>RXD → Pin 11 (CAN+)</li>
+            <li>GND → Pin 20 (GND)</li>
+        </ul>
+    </YouTubeText>
+
+    <CardWrapper>
+        <CardImage
+            src="/Images/display-port-pinout.png"
+            alt="20-pin connector pinout diagram"
+        />
+        <CardImage
+            src="/Images/corrected-cable.png"
+            alt="Corrected pin locations"
+        />
+    </CardWrapper>
+
+    <p>
+        Above is a diagram showing the 20-pin connector's pinout. It is pictured
+        as though you are looking at the display unit. <b
+            >Make sure you do not use the diagram from the video.</b
+        > Use the corrected pin image, which is from a <Link
+            href="https://www.facebook.com/groups/905762400660923/posts/1127437005160127/"
+            >Facebook discussion</Link
+        >. Also, Burt shows that <Link
+            href="https://www.facebook.com/photo.php?fbid=10237960269409603&set=p.10237960269409603&type=3"
+            >only pins 1 and 11</Link
+        > need to be connected.
+    </p>
+
+    <p>
+        After building the cable, you can use it to <Link href="/programming/"
+            >program the controller</Link
+        >.
+    </p>
+</DefaultLayout>

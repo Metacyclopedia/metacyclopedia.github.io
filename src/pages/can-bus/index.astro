@@ -1,0 +1,64 @@
+---
+import DefaultLayout from '@/layouts/DefaultLayout.astro';
+import Link from '@/components/Link.astro';
+
+const description =
+    'This is the protocol used by the Sondors Metacycle to communicate between the battery, controller, and display. It is based on CAN bus communication, which is common in automotive applications.';
+---
+
+<DefaultLayout
+    title="CAN Bus"
+    color="black"
+    backgroundImage="/Heading Backgrounds/can-bus.png"
+    description={description}
+    urlFragment="battery-activator/"
+>
+    <p>
+        The Metacycle uses CAN bus (Controller Area Network) to communicate
+        between components. This is a protocol that runs over a 2-wires and is
+        detailed on <Link href="https://en.wikipedia.org/wiki/CAN_bus"
+            >Wikipedia</Link
+        >. The various adapters take care of the protocol details and let you
+        access a serial stream.
+    </p>
+
+    <p>
+        Using Votol's serial format, software can read and set values on the <Link
+            href="/controller/">controller</Link
+        >. The most common way to read this off your Metacycle is with the <Link
+            href="/programming-cable/">programming cable</Link
+        >, though a <Link href="/connect-via-bluetooth/">Bluetooth option</Link> is
+        gaining momentum. Learn more about <Link href="/programming/"
+            >programming the controller</Link
+        >.
+    </p>
+
+    <p>
+        The CAN bus protocol is a bit more difficult to analyze. One will need
+        to attach to the wires and use a CAN bus adapter to see the information
+        packets. The normal <Link href="/programming-cable/"
+            >programming cable</Link
+        > speaks CAN to the bike but communicates with a different <Link
+            href="/serial-protocol/">serial protocol</Link
+        > to the computer. There is a post <Link
+            href="https://endless-sphere.com/sphere/threads/votol-em100-canbus-protocols.114159/#post-1745608"
+            >analyzing the CAN protocol</Link
+        > used by similar controllers.
+    </p>
+
+    <p>
+        If you are going to analyze the CAN bus directly, such as with cangaroo,
+        you will need to know that it operates at 250k. The USB programming
+        cable and Bluetooth adapter don't bridge all CAN traffic to the serial
+        port. Only messages specifically from the controller to the cable or
+        adapter are sent.
+    </p>
+
+    <p>
+        <Link
+            href="https://www.reddit.com/r/metacycle/comments/ztytv7/metacycle_general_information_oem_parts_mods_etc/"
+            >It is reported</Link
+        > that the battery is built by Greenway and the BMS is custom for Sondors.
+        The post suggests it's the standard Greenway protocol.
+    </p>
+</DefaultLayout>

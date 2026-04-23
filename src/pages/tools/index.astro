@@ -1,0 +1,35 @@
+---
+import DefaultLayout from '@/layouts/DefaultLayout.astro';
+
+const description = 'A list of recommended tools to keep with your Metacycle.';
+---
+
+<DefaultLayout
+        title="Tools"
+        description={description}
+        urlFragment="tools/"
+        color="white"
+        backgroundImage="/Heading Backgrounds/old-tools.jpg"
+        >
+        <p>Having a roadside tool kit with useful items is useful, especially for longer trips. The Metacycle can't allow someone to ride all day and was designed to be almost maintenance-free, thanks to the hub motor instead of using a traditional chain, belt, or shaft drive. Even so, you may want to know what tools are necessary to perform specific actions.</p>
+
+        <ul>
+            <li>5 mm Allen wrench - seat</li>
+
+            <li>T40 Torx wrench - battery cover</li>
+
+            <li>T50 Torx wrench - battery brackets</li>
+        </ul>
+
+        <p>In addition to the tools above, having these extras may help you in case you get stuck somewhere.</p>
+
+        <ul>
+            <li>Tire patch kit</li>
+
+            <li>Wire cutter or knife - in case the <a href="/removing-alarm-system/">alarm module</a> fails</li>
+
+            <li>Zip ties</li>
+
+            <li>Vice grips - acts as several small wrenches, can be an emergency brake lever</li>
+        </ul>
+</DefaultLayout>

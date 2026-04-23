@@ -1,0 +1,170 @@
+---
+import DefaultLayout from '@/layouts/DefaultLayout.astro';
+import Link from '@/components/Link.astro';
+import YouTubeText from '@/components/YouTubeText.astro';
+
+const description =
+    'Changing controller settings to get the most out of your Metacycle.';
+---
+
+<DefaultLayout
+    title="Programming"
+    description={description}
+    urlFragment="programming/"
+    color="white"
+    backgroundImage="/Heading Backgrounds/programming-header.png"
+>
+    <h2>Changing settings on VOTOL EM-200/2SP Controller</h2>
+
+    <p>
+        There are multiple ways you can program the controller on a Metacycle,
+        but they all have certain, specific steps that you need to take.
+    </p>
+
+    <ol>
+        <li>
+            <b>Hardware:</b> You'll need an adapter to interface with the controller
+            on the bike. The communication protocol here is <Link
+                href="/can-bus/">CAN bus</Link
+            > to the bike and a <Link href="/serial-protocol/"
+                >serial protocol</Link
+            > to the software.
+        </li>
+        <li>
+            <b>Software:</b> This presents a friendly interface to the various parameters
+            and communicates to the adapter with a <Link
+                href="/serial-protocol/">serial protocol</Link
+            >.
+        </li>
+        <li>
+            <b>Testing:</b> You change settings and see how the bike performs.
+        </li>
+    </ol>
+
+    <p>
+        The most common approach involves making a cable that <Link
+            href="/connect-through-usb-port/">plugs into the USB port</Link
+        > in the storage compartment, or cable that connects to the <a
+            href="/connect-with-20-pin-cable/">20-pin cable</a
+        > that attaches to the display. With either of these approaches, you will
+        use the <Link href="/windows-software/">Windows software</Link> to configure
+        the controller.
+    </p>
+
+    <p>
+        Votol also has an <Link
+            href="https://m.facebook.com/groups/electricmotorcyclebuilds/posts/2934433473360671/"
+            >Android app</Link
+        > that uses a <Link href="/connect-via-bluetooth/"
+            >Bluetooth adapter</Link
+        >.
+    </p>
+
+    <p>
+        Lastly, there's <Link href="/metahack/">MetaHack</Link>, a USB device
+        that connects through a custom Bluetooth adapter to an app that runs on
+        either Android or iOS.
+    </p>
+
+    <h2>Disclaimer</h2>
+
+    <p>
+        Proceed only at your own risk. Modifying your settings will certainly
+        void <Link href="/Downloads/Metacycle_Warranty.pdf">your warranty</Link> (if
+        one really exists). Going beyond what your hardware can support will leave
+        you with a large, expensive paperweight and you could get stranded. If you
+        do decide to go forward, go with caution and monitor your vehicle for the
+        slightest problems, especially with excessive heat.
+    </p>
+
+    <h2>What Settings Should I Use?</h2>
+
+    <p>
+        Just in case you want to quickly load safe settings or if you forgot to
+        backup your configuration, download the <Link
+            href="/Downloads/Factory 2021 Metacycle Settings.ini"
+            >factory settings</Link
+        > and apply them. These default settings are explained in detail on the <Link
+            href="/serial-protocol/">serial protocol</Link
+        > page; look for the response for the <code>SHOW</code> command.
+    </p>
+
+    <p>
+        A person has mentioned that trying to increase the controller's output
+        beyond 250 A <Link
+            href="https://www.facebook.com/groups/905762400660923/posts/1314449579792201/"
+            >will not work</Link
+        > because the controller is also limited internally. This may be contradicted
+        by other users' experiences and the manufacturer's own "600 A peak" rating.
+        Either way, running at 250 A for a long time <Link
+            href="https://electrek.co/2024/05/12/failed-sondors-metacycle-motorcycle-was-never-street-legal-reveals-employee/"
+            >may burn out the hardware</Link
+        >, or could be just fine (according to users).
+    </p>
+
+    <p>
+        Phase current appears to be able to be <Link
+            href="https://www.facebook.com/groups/905762400660923/posts/1294110588492767/"
+            >increased by 13%</Link
+        > to 9960, if you trust putting the additional load on the system. Also, <Link
+            href="https://www.facebook.com/groups/905762400660923/user/1345986359/"
+            >Burt Shulman's</Link
+        > configuration is the following, though he does say, "I only floor it for
+        brief periods (10 secs)........<em
+            >All this is at your own risk of smoking the controller and motor.</em
+        >"
+    </p>
+
+    <ul>
+        <li>Phase current: 9960</li>
+        <li>Soft start: unchecked (disabled)</li>
+        <li>Current limiting: 285 (appears meaningless)</li>
+        <li>HDC: unchecked (disabled)</li>
+        <li>Rate of rise: 255</li>
+    </ul>
+
+    <p>
+        John Ouyoung has been running his configuration <Link
+            href="https://www.facebook.com/groups/905762400660923/?multi_permalinks=1342715136965645"
+            >without problem</Link
+        > and it's his daily driver. "I ride mostly at wide open throttle, 40% regen
+        and with unlimited sport mode always on."
+    </p>
+
+    <ul>
+        <li>Sport mode's current limiting: 240A</li>
+        <li>Automatic logout: disabled</li>
+        <li>Soft start: disabled</li>
+        <li>Three speed default gear: high</li>
+        <li>HHC disabled</li>
+        <li>EBS ratio: 40%</li>
+    </ul>
+
+    <YouTubeText
+        code="HshlrN9dGn0"
+        title="Slow Start/Top Speed Metacycle"
+    >
+        <p>
+            <Link href="/metahack/">MetaHack</Link> creator goes over some of the
+            settings that he changes to get more performance (at the expense of consuming
+            more energy) out of his Metacycle. Good settings can be found for eliminating
+            the sluggishness when accelerating from a stop.
+        </p>
+    </YouTubeText>
+
+    <p>
+        The author of this site is less aggressive than others, but this still
+        provides good performance for driving into town. Sport mode is not
+        frequently used.
+    </p>
+
+    <ul>
+        <li>Phase Current: 9960</li>
+        <li>Rate of rise: 255</li>
+        <li>Sport current limit: 250 A</li>
+        <li>HDC: disabled</li>
+        <li>Three speed, mid: 100% (rpm), 80% (current)</li>
+        <li>Soft start: disabled</li>
+        <li>EBS ratio: 35%</li>
+    </ul>
+</DefaultLayout>

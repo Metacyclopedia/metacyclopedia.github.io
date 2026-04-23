@@ -1,0 +1,119 @@
+---
+import DefaultLayout from '@/layouts/DefaultLayout.astro';
+import ImageText from '@/components/ImageText.astro';
+import CardImage from '@/components/CardImage.astro';
+import CardWrapper from '@/components/CardWrapper.astro';
+import YouTubeText from '@/components/YouTubeText.astro';
+import Link from '@/components/Link.astro';
+
+const description =
+    "How to connect to the Sondors Metacycle through the USB port. This is the easiest way to connect to the bike's controller.";
+---
+
+<DefaultLayout
+    title="Connect through USB Port"
+    description={description}
+    urlFragment="connect-through-usb-port/"
+    color="white"
+    backgroundImage="/Heading Backgrounds/programming-usb.png"
+>
+    <p>
+        With this connection option, you need two things - the EM200 programming
+        cable and a cheap USB cable (USB A on one side). The USB end will
+        eventually plug into the Metacycle's USB port in the storage compartment
+        so you can <Link href="/programming/">program</Link> your Metacycle.
+    </p>
+
+    <p>
+        This method <Link
+            href="https://www.facebook.com/groups/905762400660923/posts/1181957453041415/"
+            >may not work</Link
+        > with some Metacycles. You can take off the seat and check the number of
+        wires going to the USB port by carefully opening the sheathing around the
+        cable. If two wires, it's only power and this method can't work. If four wires,
+        you should be good to go. Alternately, you can try this method first and if
+        it doesn't work, then order the parts to try the other approach.
+    </p>
+
+    <ImageText src="/Images/usb-votol-cable.jpg" alt="Programming cable">
+        <h4>Votol EM200-2SP Programming Cable</h4>
+        <p>
+            <Link href="https://www.amazon.com/s?k=usb+votol+em+200"
+                >Amazon</Link
+            >, <Link
+                href="https://www.aliexpress.us/w/wholesale-votol-programming-cable.html?spm=a2g0o.detail.search.0"
+                >AliExpress</Link
+            >, and <Link href="https://www.ebay.com/sch/i.html?_nkw=usb+votol"
+                >eBay</Link
+            > have these. Make sure to find ones that are blue with a black band.
+            Ones without a black band are the wrong version. <Link
+                href="/programming-cable/">Lean more</Link
+            > about this item.
+        </p>
+    </ImageText>
+
+    <ImageText src="/Images/cheap-usb-cable.jpg" alt="USB cable">
+        <h4>A Random USB Data Cable</h4>
+        <ul>
+            <li>
+                You can use any cable that allows data transfer. Take the cable
+                from an old mouse, for example.
+            </li>
+
+            <li>
+                When you look into the USB-A end (as pictured below) it should
+                have 4 contact points. Some cheap cables only have 2 and those
+                will not work.
+            </li>
+
+            <li>
+                We want the USB-A end and some length of cable, so chop off the
+                micro-USB, mouse, or whatever is on the other end. Peel away
+                some of the outer sheath and count the number of wires within.
+                We want at least 4 wires.
+            </li>
+        </ul>
+    </ImageText>
+
+    <CardWrapper>
+        <CardImage src="/Images/usb-pinout.png" alt="USB pinout diagram" />
+        <CardImage
+            src="/Images/usb-wires.png"
+            alt="USB cable with wires exposed"
+        />
+    </CardWrapper>
+
+    <YouTubeText
+        code="P2KBf87zcsk"
+        title="USB Wired Connector Update"
+    >
+        <ul>
+            <li>Pin 1 (red) +5 V → Unused - keep it isolated</li>
+            <li>Pin 2 (white) Data - → L (left center, pin 4)</li>
+            <li>Pin 3 (green) Data + → H (middle, pin 3)</li>
+            <li>Pin 4 (black) GND → Unused - keep it isolated</li>
+        </ul>
+    </YouTubeText>
+
+    <ImageText
+        src="/Images/adapter-correctly-wired.jpg"
+        alt="Programming cable close up"
+    >
+        <p>
+            This shows the correct wiring of the cable to a cut USB cord. Notice
+            how the red and black wires are taped off so they can't make contact
+            to any other wire.
+        </p>
+    </ImageText>
+
+    <ImageText
+        src="/Images/adapter-connected-to-computer.jpg"
+        alt="Programming cable connected to Metacycle"
+    >
+        <p>
+            Once this has been created, you can use software to <Link
+                href="/programming/">program the controller</Link
+            >.
+        </p>
+    </ImageText>
+</DefaultLayout>

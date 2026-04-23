@@ -1,0 +1,822 @@
+---
+import DefaultLayout from '@/layouts/DefaultLayout.astro';
+import Link from '@/components/Link.astro';
+import FeaturedImage from '@/components/FeaturedImage.astro';
+
+const description =
+    'All about the Windows software to program the Metacycle controller.';
+---
+
+<DefaultLayout
+    title="Windows Software"
+    description={description}
+    urlFragment="windows-software/"
+    color="white"
+    backgroundImage="/Heading Backgrounds/windows-software.png"
+>
+    <h2>EM V3-40 and Variants</h2>
+
+    <p>
+        After you have some hardware to connect to your Metacycle, now you need
+        the <Link href="/Software/EM_V3-40.zip">Windows software</Link> to perform
+        the actual configuration. The <Link
+            href="/Downloads/Votol Controller Debugging Manual.pdf"
+            >Controller Debugging Manual</Link
+        >, <Link
+            href="/Downloads/Controller-programming-manual---20221125(1).pdf"
+            >Programming Manual</Link
+        >, and <Link
+            href="/Downloads/VOTOL-EM-Motor-Controller-Manual-ENG-V3.4-by-SiAECOSYS.pdf"
+            >EM Motor Controller Manual</Link
+        > will help walk you through the screens.
+    </p>
+
+    <p>
+        Screenshots are of the EM V3-40 software showing a stock Metacycle's
+        controller's settings. Different <Link href="/files/"
+            >software variants</Link
+        > change the screens but are also similar enough to navigate. This documentation
+        will correct obvious typos and misspellings, such as "buadrate" on page 1.
+    </p>
+
+    <p>
+        To start programming <Link href="/controller/">the controller</Link>,
+        you need to have the controller powered on.
+    </p>
+
+    <p>
+        For further information about the settings, there's a <Link
+            href="https://endless-sphere.com/sphere/threads/votol-em-100-em-150-controllers.95969/"
+            >lengthy thread discussing many parts</Link
+        >.
+    </p>
+
+    <h2>Disclaimer</h2>
+
+    <p>
+        Proceed only at your own risk. Modifying your settings will certainly
+        void <Link href="/Downloads/Metacycle_Warranty.pdf">your warranty</Link
+        >. Going beyond what your hardware can support will leave you with a
+        large, expensive paperweight and you could get stranded. If you do
+        decide to go forward, use caution and monitor your vehicle for the
+        slightest problems, especially with excessive heat.
+    </p>
+
+    <h2>Getting Started</h2>
+
+    <p>
+        Across the top of each screen are the following buttons, which let you
+        navigate to different places.
+    </p>
+    <ul>
+        <li><b>Page 1:</b> basic settings</li>
+
+        <li><b>Page 2:</b> tuning</li>
+
+        <li><b>Page 3:</b> motor profile</li>
+
+        <li><b>Display:</b> real-time information</li>
+
+        <li>
+            <b>Port Settings:</b> assign functions to buttons and controller ports
+        </li>
+    </ul>
+
+    <p>At the bottom are a series of other buttons.</p>
+    <ul>
+        <li>
+            <b>Port:</b> Which COM port to use for connecting to the controller
+        </li>
+
+        <li><b>Status:</b> If the COM port is connected or not.</li>
+
+        <li>
+            <b>Open / Close:</b> To open or close the COM port. The port must be opened
+            before using the Connect button.
+        </li>
+
+        <li><b>Research:</b> To scan your computer for COM ports again.</li>
+
+        <li>
+            <b>Connect:</b> After the COM port is opened, you can connect to the controller.
+        </li>
+
+        <li>
+            <b>Param Write:</b> Commit the changes to the controller. Only do this
+            after you've made a backup.
+        </li>
+
+        <li><b>success_count:</b> Number of successful messages received.</li>
+
+        <li>
+            <b>error_count:</b> Number of bad messages received. This could be due
+            to a CRC error, firmware configuration issues, noise on the line, or a
+            bad connection.
+        </li>
+
+        <li>
+            <b>Import Param:</b> Read a saved configuration file and populate the
+            settings in the software.
+        </li>
+
+        <li>
+            <b>Save Param:</b> Write the current settings in the software to a configuration
+            file.
+        </li>
+    </ul>
+
+    <h2>Get Connected</h2>
+
+    <ol>
+        <li>Turn on the Metacycle.</li>
+
+        <li>
+            Attach the programming cable, either through the USB port in the
+            storage area or using the 20-pin cable behind the display.
+        </li>
+
+        <li>Do not hook up the cable to your computer.</li>
+
+        <li>
+            Launch the software and look at the options in the PORT drop-down.
+            This might be an empty list. If not, note each of the ports listed.
+        </li>
+
+        <li>Hook the USB adapter to the computer and press "Research".</li>
+
+        <li>
+            Open the PORT drop-down list and select the new COM port, set the
+            baud rate to 115200, ensure "CAN enable" is not checked.
+        </li>
+
+        <li>Press the OPEN button to open the port, then press Connect.</li>
+
+        <li>
+            The settings will be read from the Metacycle and the pages will now
+            populate.
+        </li>
+    </ol>
+
+    <p>
+        The very first thing you should do is to save your current parameters.
+        Keep this file safe so you can return to the stock settings. In case you
+        didn't do this and now you want to go back to the stock Metacycle
+        settings, you can download <Link
+            href="/Downloads/Factory 2021 Metacycle Settings.ini"
+            >one that was shared</Link
+        >.
+    </p>
+
+    <h2>Page 1 - Basic Settings</h2>
+
+    <FeaturedImage src="/Screenshots - EM V3-40/Page 1.png" alt="Page 1" />
+
+    <p><b>SW:</b> The controller's firmware version.</p>
+
+    <p><b>HW:</b> The controller's hardware version.</p>
+
+    <p>
+        <b>Baud rate:</b> How fast to communicate with the USB adapter. The USB CAN
+        adapter only operates at 115200 baud.
+    </p>
+
+    <p>
+        <b>CAN enable:</b> This checkbox is for other controllers or the older cable.
+        In order to use the <Link href="/programming-cable/"
+            >programming cable</Link
+        >, do not check this box.
+    </p>
+
+    <p>
+        <b>ÖĐĨÄ / ENGLISH:</b> This toggles the language to/from Chinese. It shows
+        up as these characters because the Chinese languages are not installed on
+        this Windows machine. If you do have the Chinese language installed, this
+        shows "中文" instead.
+    </p>
+
+    <p>
+        <b>Model:</b> The model of the controller. Defaults to EM100 after connection
+        because the protocol being used is shared by that same controller.
+    </p>
+
+    <p><b>Battery Voltage (V):</b> The rated voltage of the battery.</p>
+
+    <p>
+        <b>Overvoltage (V):</b> When the battery provides more volts than this value,
+        the controller will not output power. If set too high, this causes controller
+        damage. If set too low, it will cause problems when the battery is full.
+    </p>
+
+    <p>
+        <b>Undervoltage (V):</b> When the battery's volts drops below this threshold,
+        the BMS will not output power. This is where the battery's BMS will turn off.
+        Riding beyond this is not possible. Battery life can be shortened and controller
+        damage could occur in severe cases.
+    </p>
+
+    <p>
+        <b>Soft undervoltage (V):</b> If the voltage drops below this threshold, the
+        controller's output will be throttled to help protect the battery.
+    </p>
+
+    <p>
+        <b>Undervoltage variation (V):</b> After the vehicle stops due to undervoltage,
+        do not allow it to be driven until voltage is raised by this amount. Typically
+        this is set to 1 V, so the battery will need to be charged to 56 V with stock
+        settings in order to drive again.
+    </p>
+
+    <p>
+        <b>Busbar current (A):</b> How much current can travel through the controller.
+        The stock controller is rated at 200 A but is set to 120 A. 72 V (battery
+        voltage) times 120 A (busbar current) = 8,640 W = 8.64 kW. The motor is rated
+        for 8 kW nominal, 14.5 kW peak. Other software calls this "Regenerative (A)"
+        indicating that this value is the maximum amount of current that can flow
+        back through the controller to the battery and the value here should indicate
+        the maximum charge rate of the battery. It seems as though this may be used
+        for both directions if the controller <Link
+            href="/Downloads/Votol Controller Debugging Manual.pdf"
+            >Debugging Manual</Link
+        > and <Link
+            href="/Downloads/Controller-programming-manual---20221125(1).pdf"
+            >Programming Manual</Link
+        > can both be trusted.
+    </p>
+
+    <p>
+        <b>Phase current:</b> Phase line current limiter. Controller damage can happen
+        when set too high. More information about <Link
+            href="https://endless-sphere.com/sphere/threads/help-understand-phase-current-and-rated-current.41699/"
+            >phase current</Link
+        >. If set too high, the temperature will increase sharply, which burns
+        out the MOS tube.
+    </p>
+
+    <p>
+        <b>Low protect:</b> Stops the ECU operation. Values between this number and
+        start voltage are considered 0% throttle.
+    </p>
+
+    <p>
+        <b>Start voltage:</b> When throttle voltage is above this number, the motor
+        starts running. When below this threshold, the motor stops running. The starting
+        voltage of the throttle must be greater than the initial throttle voltage
+        to prevent the vehicle from starting if water enters the handle. This should
+        be at 0% throttle, or "fully closed."
+    </p>
+
+    <p>
+        <b>The end of the:</b> (End voltage) High end of the throttle voltage. The
+        throttle is considered "wide open" at this voltage. Throttle volts from this
+        value up to the high value are all considered 100% throttle.
+    </p>
+
+    <p>
+        <b>High:</b> The "too high" protection value. 5 V is the highest that should
+        be set, which would indicate a short in the throttle. Must be higher than
+        the throttle at "wide open".
+    </p>
+
+    <p>
+        The calculated throttle value is a linear graph when between the start
+        voltage and the end voltage.
+    </p>
+
+    <p>
+        <b>Start torque:</b> Torque at startup. You probably want this at 0 at all
+        times, otherwise your bike might drive away when powered on.
+    </p>
+
+    <p>
+        <b>Combinative torque:</b> A smoothing factor for when nearing the target
+        torque. 0 means there's no smoothing, 350 is the max. This setting and the
+        start torque are meant for mid-drive motors with gearboxes, not the direct-drive
+        of the Metacycle.
+    </p>
+
+    <p>
+        <b>Rate of rise:</b> Acceleration slope, from 10 to 255. Faster acceleration
+        is achieved with higher values.
+    </p>
+
+    <p>
+        <b>Rate of decline:</b> Deceleration slope, from 10 to 200. Controls how fast
+        you slow down when the throttle is rolled back.
+    </p>
+
+    <p>
+        These parameters have useful graphs that explain them in the <Link
+            href="/Downloads/Controller-programming-manual---20221125(1).pdf"
+            >Programming Manual</Link
+        >.
+    </p>
+
+    <h2>Page 2 - Tuning</h2>
+
+    <FeaturedImage src="/Screenshots - EM V3-40/Page 2.png" alt="Page 2" />
+
+    <p>
+        <b>Current-limiting (A):</b> Maximum amount of current to supply to the motor.
+    </p>
+
+    <p>
+        <b>Flux-weakening value:</b> The first input is the weak magnetic value, with
+        an upper limit of 5000. The higher the number, the higher the speed of the
+        motor. The second number (KI) tweaks the amount of vibration and ranges from
+        100 to 1200, adjusted in multiples of 50. Changing the second number can help
+        tune some vibrations out of the motor at high speeds.
+    </p>
+
+    <p><b>Automatic logout enabled:</b> Should sport mode have a time limit?</p>
+
+    <p><b>Logout time (S):</b> Maximum amount of time to stay in sport mode.</p>
+
+    <p>
+        <b>Recovery time (S):</b> After the time elapses, do not allow sport mode
+        for this many seconds.
+    </p>
+
+    <p>
+        With sport mode enabled, the motor is running in the flux-weakening
+        region, which is where the motor is made to spin faster at the expense
+        of torque. The magnetic field strength in the motor's stator is reduced,
+        which also reduces the back electromotive force.
+    </p>
+
+    <p>
+        Long-term use of sport mode will cause the controller, battery, and
+        motor to overheat, which leads to damage.
+    </p>
+
+    <p>
+        <b>HHC enable:</b> Hill Hold Control will hold the bike stationary when starting
+        on a hill. Long-term use will cause controller temperature problems. Documentation
+        says this is for three-wheelers, not motorcycles.
+    </p>
+
+    <p>
+        <b>HDC enable:</b> Hill Descent Control is a speed limiter to prevent runaway
+        speed while going downhill. Sondors used this to limit the maximum speed of
+        the motorcycle.
+    </p>
+
+    <p>
+        <b>HDC lowest speed:</b> Maximum RPM of the motor; the minimum rotation speed
+        at which Hill Descent Control kicks in.
+    </p>
+
+    <p>
+        <b>Speed limited enable:</b> Limit the maximum speed. If enabled, limits the
+        vehicle to 25 km/h (15.5 mph).
+    </p>
+
+    <p>
+        <b>Speed ratio (%):</b> Unknown how this figures into limiting speed. PB4
+        port should be set to speed limiting in port settings.
+    </p>
+
+    <p>
+        <b>Flux-weakening compensation:</b> The manual suggests this "adjusts the
+        size of the reverse torque." Other software label it as MTPA (Maximum Torque
+        Per Ampere) and says this makes the motor produce the maximum torque with
+        the minimum phase current.
+    </p>
+
+    <p>
+        <b>Low (%), Mid (%):</b> The left side is the maximum rotational speed before
+        HDC is enabled. For Mid using the default settings, it is 75% × 1200 RPM =
+        900 RPM. The right side is the maximum amperage allowed. For Mid using the
+        default settings it is 68% × 220 A = 149.6 A.
+    </p>
+
+    <p>
+        <b>High (%):</b> The left side is the same as Low (%) and Mid (%). The right
+        side will let you overshoot the rated RPM of the motor (KD). Documentation
+        says to not adjust this value otherwise you may damage your power train.
+    </p>
+
+    <p>
+        <b>Mid flux-weakening value:</b> The programming guide says these are unable
+        to be changed. Other software label the left field as the maximum phase line
+        current corresponding to the first step of the accelerator at the start and
+        the acceleration to the end. The first value is also labeled as "start phase."
+        The right field is described as the maximum phase current maintenance time
+        of the controller through the capacitor, protection time for the controller.
+    </p>
+
+    <p>
+        <b>High flux-weakening value:</b> The programming guide says these are unable
+        to be changed. Other software will suggest changing the left field (KP) may
+        affect motor noise. The right one is the upper limit for phase current.
+    </p>
+
+    <p>
+        <b>Button/Switch 3 speed:</b> "Button 3 speed" means the gear is determined
+        by the number of times you press the switch. Use "switch 3 speed" when you
+        have a three-position switch to control your gear. Using either one of these
+        requires a change in the Port Settings page.
+    </p>
+
+    <p>
+        <b>Three speed default gear:</b> Select Low, Mid, or High for the default
+        gear to be in when using "Button 3 speed."
+    </p>
+
+    <p>
+        <b>Soft start enabled:</b> When checked, make the acceleration from a standstill
+        more gradual. When unchecked, do not start gently.
+    </p>
+
+    <p><b>Soft start grade:</b> Controls the amount of softening applied.</p>
+
+    <h2>Page 3 - Motor Profile</h2>
+
+    <FeaturedImage src="/Screenshots - EM V3-40/Page 3.png" alt="Page 3" />
+
+    <p><b>Pole pairs:</b> Number of pole pairs in the motor.</p>
+
+    <p>
+        <b>Exchange hall wire color Yellow-Blue:</b> Used for motor matching. Check
+        wiring harness.
+    </p>
+
+    <p>
+        <b>Exchange phase wire color Blue-Green:</b> Used for motor matching. Check
+        wiring harness.
+    </p>
+
+    <p>
+        <b>Motor type:</b> Both "surface-mount" and "v-type" are different motor types.
+    </p>
+
+    <p><b>Hall shift angle:</b> Matches motor manufacturer's parameters</p>
+
+    <p>
+        <b>One-LIN, Hall speedometer:</b> Both of these control how information is
+        sent to the speedometer. The Metacycle's display uses one-LIN, but the display
+        can be changed. Make sure to update PB4 on the Port Settings page from "single_wire_co"
+        to "hall_smulat_o" if this is changed.
+    </p>
+
+    <p>
+        <b>Moving vehicle booster:</b> Powers the motor to help you push the vehicle.
+    </p>
+
+    <p>
+        <b>Cruise:</b> Allow a button to enable a cruise control. Maintain speed for
+        8 or more seconds then press a button (configured on the Port Settings page)
+        to enter cruise mode. Any operation exits cruise control.
+    </p>
+
+    <p>
+        <b>Moving vehicle booster speed ratio (%):</b> Amount of assistance as percentage
+        of motor base speed.
+    </p>
+
+    <p>
+        <b>Moving vehicle booster torque:</b> Maximum torque to apply when assisting.
+    </p>
+
+    <p>
+        <b>Double-voltage:</b> Allows switching to one voltage category above or below
+        the current battery rating.
+    </p>
+
+    <p>
+        <b>Low, High:</b> Determines if the default voltage is the lower or higher
+        rating.
+    </p>
+
+    <p>
+        <b>Reversing the speed limit (%):</b> Maximum speed limit when driving in
+        reverse.
+    </p>
+
+    <p>
+        <b>EBS ratio (%):</b> Enables regenerative braking and controls how much braking
+        is applied.
+    </p>
+
+    <p>
+        <b>Low brake:</b> Alternate software labels this as "Motor noise reduction"
+        and indicates that Page 1's Flux-weakening compensation value needs to be
+        increased by 25 or the motor will overrun at high speed.
+    </p>
+
+    <p>
+        <b>Secure boot:</b> Need to enable the safety switch when running the vehicle.
+    </p>
+
+    <h2>Page 4 - Display</h2>
+
+    <FeaturedImage src="/Screenshots - EM V3-40/Page 4.png" alt="Page 4" />
+
+    <p><b>RPM:</b> The motor's current rotational speed.</p>
+
+    <p>
+        <b>Voltage:</b> ("Switch" disabled on debug panel) The battery's supplying
+        this much voltage to the controller.
+    </p>
+
+    <p>
+        <b>Current:</b> ("Switch" disabled on debug panel) The battery is discharging
+        at this rate in amps. The manual indicates this is the bus current value;
+        perhaps this is sent from the BMS.
+    </p>
+
+    <p>
+        <b>Q-Axis voltage:</b> ("Switch" enabled on debug panel) Voltage of Q-axis,
+        which is related to torque.
+    </p>
+
+    <p>
+        <b>D-Axis voltage:</b> ("Switch" enabled on debug panel) Voltage of D-axis,
+        which is related to main field flux.
+    </p>
+
+    <p>
+        <b>Q-Axis amperage:</b> ("Switch" partially enabled on debug panel) Amperage
+        of Q-axis, which is related to torque.
+    </p>
+
+    <p>
+        <b>D-Axis amperage:</b> ("Switch" partially enabled on debug panel) Amperage
+        of D-axis, which is related to main field flux.
+    </p>
+
+    <p>
+        <b>Fault Code:</b> 4-byte value, displayed as hex. Feeds into the fault display
+        flags, which are covered as a part of the serial protocol information.
+    </p>
+
+    <p><b>Hall fault:</b> Unknown.</p>
+
+    <p><b>Brake:</b> Unknown.</p>
+
+    <p><b>Motor hall:</b> Unknown.</p>
+
+    <p>
+        <b>Undervoltage:</b> Controller is not receiving enough voltage to operate
+        safely. See Page 1.
+    </p>
+
+    <p>
+        <b>Overvoltage:</b> Controller is receiving too much voltage. See Page 1.
+    </p>
+
+    <p><b>Overcurrent:</b> Sending too much energy to the motor. See Page 2.</p>
+
+    <p><b>Controller failure:</b> Unknown.</p>
+
+    <p><b>Out of control:</b> Unknown.</p>
+
+    <p>
+        <b>Overheating:</b> Temperature crossed thresholds defined in the advanced
+        settings on page 3.
+    </p>
+
+    <p><b>Controller temp (?):</b> Controller temperature.</p>
+
+    <p><b>External Temp (?):</b> Motor temperature</p>
+
+    <p><b>Temp coefficient:</b> Controller hardware coefficient.</p>
+
+    <p>
+        When the temperature is over its limit, the controller will shut down
+        and not provide power until it has cooled. See the advanced settings on
+        page 3.
+    </p>
+
+    <p><b>Gears:</b> What gear the vehicle is in, Low, Mid, High, or Sport.</p>
+
+    <p><b>R:</b> Is the vehicle in reverse?</p>
+
+    <p><b>P:</b> Is the vehicle parked?</p>
+
+    <p><b>Brake:</b> A brake lever is being depressed.</p>
+
+    <p><b>ANT:</b> Anti-theft system is engaged.</p>
+
+    <p><b>Side stand:</b> The kickstand is down.</p>
+
+    <p>
+        <b>Regen:</b> Deceleration is generating energy and feeding it back through
+        the controller and into the battery. Regenerative braking is happening.
+    </p>
+
+    <h2>Page 5 - Port Settings</h2>
+
+    <FeaturedImage src="/Screenshots - EM V3-40/Page 5.png" alt="Page 5" />
+
+    <p><b>PD0:</b> Nothing.</p>
+
+    <p><b>JTCK:</b> Nothing.</p>
+
+    <p><b>SWD:</b> Nothing.</p>
+
+    <p><b>PA11:</b> From manual: "single support / low brake."</p>
+
+    <p><b>PB3:</b> Thermostat.</p>
+
+    <p><b>PD1:</b> Button to engage / disengage sport mode.</p>
+
+    <p><b>PA12:</b> Nothing.</p>
+
+    <p><b>PC15:</b> Nothing.</p>
+
+    <p><b>PA0:</b> Nothing.</p>
+
+    <p><b>PB9:</b> From manual: "high brake."</p>
+
+    <p><b>PB4:</b> From manual: "ISDN." Single wire for speedometer.</p>
+
+    <p><b>PA15:</b> Reverse button.</p>
+
+    <p><b>PB2:</b> Park mode button.</p>
+
+    <p><b>PC14:</b> Anti-theft.</p>
+
+    <p><b>PB5:</b> Nothing.</p>
+
+    <p><b>PD15 (empty):</b> Nothing.</p>
+
+    <h2>Debug Panel</h2>
+
+    <FeaturedImage
+        src="/Screenshots - EM V3-40/Debug Panel.png"
+        alt="Debug Panel"
+    />
+
+    <p>
+        Pressing the "&gt;" icon on the right side of the window will open up a
+        debug panel, then pressing "&lt;" closes it. This panel doesn't change
+        as you toggle between pages.
+    </p>
+
+    <p><b>Communication and download set:</b> Unknown</p>
+
+    <p><b>Set compare check:</b> Set the CRC value for messages.</p>
+
+    <p>
+        <b>Current check:</b> Current calculated CRC value of messages. Green if successful,
+        red if CRC doesn't match.
+    </p>
+
+    <p>
+        <b>Throttle:</b> Show the current throttle as a slider and as a voltage.
+    </p>
+
+    <p><b>Gear:</b> Displays the current gear that the controller is in.</p>
+
+    <p>
+        <b>Switch:</b> When not checked, shows the RPM, voltage, and current. When
+        checked, shows the RPM, Q-axis voltage, and D-axis voltage. When in the third
+        state (greyed + selected) it shows RPM, Q-axis current, D-axis current. This
+        affects the "Display" page.
+    </p>
+
+    <p><b>Brake:</b> Is a brake currently applied?</p>
+
+    <p><b>R:</b> Is the device in reverse?</p>
+
+    <p><b>Lock:</b> Is the vehicle locked?</p>
+
+    <p>
+        <b>Vol cal:</b> Calibrate so the detected voltage is consistent with actual
+        voltage.
+    </p>
+
+    <p>
+        <b>Cur cal:</b> Calibrate amperes so the detected current is consistent with
+        actual current.
+    </p>
+
+    <p><b>Weak flux:</b> Unsure how this affects weak flux.</p>
+
+    <p>
+        <b>CLR DTC:</b> Clears failure. The button doesn't appear on this screen but
+        is in the documentation and other software packages have it. It might only
+        show up with a failure.
+    </p>
+
+    <p>
+        <b>Open file:</b> Open an ECU file (bin file) or configuration file (ini file).
+    </p>
+
+    <p><b>Download:</b> Send an ECU file (bin file) to the controller.</p>
+
+    <p><b>Moden:</b> Unknown.</p>
+
+    <p><b>Delay:</b> Unknown.</p>
+
+    <h2>Advanced Settings</h2>
+
+    <h4>Page 1</h4>
+
+    <FeaturedImage
+        src="/Screenshots - EM V3-40/page-1-advanced-brand.png"
+        alt="Page 1 - Brand"
+    />
+
+    <p>
+        <b>Brand:</b> This drop-down list has several options, though it is unknown
+        what effect the different values have when programming the controller.
+    </p>
+
+    <h4>Page 3</h4>
+
+    <FeaturedImage
+        src="/Screenshots - EM V3-40/page-3-temperature-protection.png"
+        alt="Page 3 - Temperature Protection"
+    />
+
+    <p>
+        <b>Initial temperature:</b> Controller enters temperature protection when
+        this temperature (° C) is reached.
+    </p>
+
+    <p>
+        <b>Over-temperature:</b> Controller enters second temperature protection at
+        this limit.
+    </p>
+
+    <p>
+        <b>Max temperature:</b> Controller shuts down at this temperature and will
+        need to cool (to over-temperature setting) before starting again.
+    </p>
+
+    <p>
+        <b>T.C.1:</b> Temperature limiting power. Limit power output when the item
+        (motor?) reaches this threshold. Shut down when the temperature reaches 20°
+        C above this value.
+    </p>
+
+    <p>
+        <b>T.C.2:</b> Called "Traction control" and "Dampening" in different software.
+        With dampening, the range is between 10 and 30. If set too high, the motor
+        will stop too fast and a current sound will appear when stationary. With traction
+        control, it is enabled if the value is less than 9280.
+    </p>
+
+    <p>
+        <b>T.C.3:</b> Display speed adjustment. GPS / Speedometer × 64 × 256. Adjust
+        in multiples of 256.
+    </p>
+
+    <h4>Debug Panel</h4>
+
+    <FeaturedImage
+        src="/Screenshots - EM V3-40/debug-panel-advanced-settings.png"
+        alt="Debug Panel - Advanced Settings"
+    />
+
+    <p>
+        <b>Remote / Local:</b> Switch between remote and local control. With the software
+        set to remote control, the controller's input is from the software and not
+        the controls.
+    </p>
+
+    <p><b>Calibration:</b> Writes calibration data.</p>
+
+    <p><b>Reset:</b> Restarts the controller to use newly saved settings.</p>
+
+    <p>
+        <b>CAN:</b> Adjusts CAN debugging line baud rate and ID. Controls the debug
+        line restart. Shows a bunch more radio options and an extra button.
+    </p>
+
+    <FeaturedImage
+        src="/Screenshots - EM V3-40/debug-panel-advanced-can-settings.png"
+        alt="Debug Panel - Advanced CAN Settings"
+    />
+
+    <p>
+        <b>?????:</b> (Actual label is 重启调试线, restart debug interface) There's
+        no English label for this button. Without Chinese installed, this will look
+        like strange characters or question marks.
+    </p>
+
+    <h2>INI File Layout</h2>
+
+    <p>
+        The INI file that's written contains the seven pages of data that are
+        also retrieved through LDGET and that are set through P commands. There
+        are seven pages of configuration data, each containing 17 bytes. This is
+        just the decimal form of each byte, written as one byte per line, using
+        decimal notation.
+    </p>
+
+    <p>
+        For instance, line 1 is the controller model. Line 2 is the battery
+        voltage and brand. Lines 3 and 4 correspond to the overvoltage setting.
+        Lines 16 and 17 are the calibration for the current and that's the end
+        of the data in the first set of 17 bytes. The second set of 17 bytes
+        starts with the max bus current on lines 18 and 19.
+    </p>
+
+    <p>
+        See the field explanation on the <Link href="/serial-protocol/"
+            >serial protocol</Link
+        > page.
+    </p>
+</DefaultLayout>

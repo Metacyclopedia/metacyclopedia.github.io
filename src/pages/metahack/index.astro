@@ -1,0 +1,53 @@
+---
+import DefaultLayout from '@/layouts/DefaultLayout.astro';
+import YouTubeText from '@/components/YouTubeText.astro';
+import Link from '@/components/Link.astro';
+
+const description = 'Tune your Metacycle with an app via Bluetooth';
+---
+
+<DefaultLayout title="MetaHack" description={description} urlFragment="metahack/" color="white" backgroundImage="/Heading Backgrounds/metahack.jpg">
+    <p>
+        This is a custom <Link
+            href="https://play.google.com/store/apps/details?id=com.projecteureka.metahack"
+            >Android</Link
+        > and <Link
+            href="https://apps.apple.com/xk/app/metahack-motorcycle-remote/id6446256939"
+            >iOS</Link
+        > app that can tweak your Metacycle. It works with a Bluetooth adapter and
+        plugs into the USB charging port in the storage compartment. This is probably
+        the easiest method used to <Link href="/programming/"
+            >program the controller</Link
+        >.
+    </p>
+
+    <YouTubeText
+        code="JR3Ga5fd_i4"
+        title="September Update - new hardware, app improvements."
+    >
+        <p>
+            You can join the <Link href="https://discord.gg/QmVYG2QsZB"
+                >Discord server</Link
+            > for more information. The device exists and is made on-demand by the
+            developer (@metahack on Discord). You can purchase one through <Link
+                href="https://buymeacoffee.com/metahack/extras"
+                >Buy Me a Coffee</Link
+            >.
+        </p>
+    </YouTubeText>
+
+    <p>
+        This is much more than the basic <Link href="/connect-via-bluetooth/"
+            >Votol Bluetooth adapter</Link
+        >. It's a custom-built device that is powered by an Arduino. You can
+        find schematics, case designs (OpenSCAD and STL), and additional
+        information in the <Link
+            href="https://github.com/virgilm/votol_tuner_hardware?tab=readme-ov-file"
+            >GitHub hardware repository</Link
+        >. There's another repository for the <Link
+            href="https://github.com/virgilm/votol_bt_interface?tab=readme-ov-file"
+            >Bluetooth to CAN bus software</Link
+        >. It can be used to tune other Votol controllers besides the one in the
+        Metacycle.
+    </p>
+</DefaultLayout>
