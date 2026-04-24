@@ -15,24 +15,26 @@ const { backgroundImage, color, title } = Astro.props;
         background-position: center;
     }
 
-    div {
+    h1 {
         padding: 2em 1em;
         display: flex;
         align-items: center;
         justify-content: center;
+        margin: 0;
+        font-size: 1em;
     }
 
-    div.white {
+    h1.white {
         color: white;
         background-color: rgba(0, 0, 0, 0.5);
     }
 
-    div.black {
+    h1.black {
         background-color: rgba(255, 255, 255, 0.5);
         color: black;
     }
 </style>
 
 <header style={`background-image: url("${backgroundImage}")`}>
-    <div class={color}>{title}</div>
+    <h1 class={color}>{title}</div>
 </header>
