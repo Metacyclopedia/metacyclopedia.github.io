@@ -7,14 +7,15 @@
   },
   "scripts": {
     "astro": "astro",
-    "build": "astro build",
+    "build": "./build",
     "dev": "astro dev",
     "preview": "astro preview",
     "start": "astro dev"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.2",
-    "astro": "^6.1.5",
+    "astro": "^6.1.9",
+    "astro-indexnow": "^2.1.1",
     "fudgel": "^3.3.0",
     "prettier-plugin-astro": "^0.14.1"
   }

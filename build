@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+set -x
+
+if ! git show origin/gh-pages:.astro-indexnow-cache.json > .astro-indexnow-cache.json; then
+    rm .astro-indexnow-cache.json
+fi
+
+if [[ -n "$INDEXNOW_KEY" ]]; then
+    echo "$INDEXNOW_KEY" >> public/"$INDEXNOW_KEY".txt
+fi
+
+astro build
+
+if [[ -f .astro-indexnow-cache.json ]]; then
+    cp .astro-indexnow-cache.json dist
+fi

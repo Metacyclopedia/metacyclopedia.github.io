@@ -1,0 +1,3 @@
+User-agent: *
+Disallow:
+Sitemap: https://metacyclopedia.github.io/sitemap-index.xml
