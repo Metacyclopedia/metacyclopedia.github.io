@@ -33,8 +33,23 @@ const { backgroundImage, color, title } = Astro.props;
         background-color: rgba(255, 255, 255, 0.5);
         color: black;
     }
+
+    .site-name {
+        font-size: 1.5rem;
+        text-align: right;
+        background-color: black;
+        color: white;
+    }
+
+    .site-name a {
+        text-decoration: none;
+        color: inherit;
+    }
 </style>
 
+<div class="site-name">
+    <a href="/">Metacyclopedia</a>
+</div>
 <header style={`background-image: url("${backgroundImage}")`}>
-    <h1 class={color}>{title}</div>
+    <h1 class={color}>{title}</h1>
 </header>
